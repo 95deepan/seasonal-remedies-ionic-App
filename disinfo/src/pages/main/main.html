@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="font">Seasonal Influenza</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding style="background-image: url(assets/img/livelong3.jpg);">
+  
+<ion-grid> 
+  <ion-row>
+    <ion-col width-50><ion-card><button (click)=opensummer();>
+    <img class="imgcss" src="assets/img/sun.jpg"/></button>
+    <div text-center class="card-title" style="color:black; font-weight: 10px;">Summer</div>
+  </ion-card></ion-col>
+
+  <ion-col width-50><ion-card><button (click)=openwinter();>
+    <img class="imgcss" src="assets/img/winter.jpg"/></button>
+    <div text-center class="card-title" style="color:black; font-weight: 10px;">Winter</div>
+  </ion-card></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50><ion-card><button (click)=openspring();>
+    <img class="imgcss" src="assets/img/spring.jpg"/></button>
+    <div text-center class="card-title" style="color:black; font-weight: 10px;">Spring</div>
+  </ion-card></ion-col>
+
+  <ion-col width-50><ion-card><button (click)=openautumn();>
+    <img class="imgcss" src="assets/img/autumn.jpg"/></button>
+    <div text-center class="card-title" style="color:black; font-weight: 10px;">Autumn</div>
+  </ion-card></ion-col>
+  </ion-row>
+</ion-grid><div text-center><button ion-button (click)=loading();><b>Your Location</b></button></div>
+</ion-content>
+

@@ -1,0 +1,70 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center class="font">Summer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-image: url(assets/img/sun2.jpg);">
+   <ion-card>
+  <img class="imgcss" src="assets/img/ckn.jpg"/>
+  <ion-card-content>
+    <ion-card-title text-center>
+      Chicken Pox
+      </ion-card-title>
+    <p text-center>
+      It is one of the most popular summer season disease.</p>
+    <ion-row>
+      <ion-col width-34>
+         <button style="background-color: white;" (click)=showAlert1a();> 
+    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         </button>
+      </ion-col>
+      <ion-col width-33> 
+         <button style="background-color: white;" (click)=showAlert1b();> 
+   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         </button>
+      </ion-col>
+      <ion-col width-33> 
+         <button style="background-color: white;" (click)=showAlert1c();> 
+   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+ <ion-card>
+  <img class="imgcss" src="assets/img/eye.jpg"/>  
+  <ion-card-content>
+    <ion-card-title text-center>
+      Conjunctivitis
+      </ion-card-title>
+    <p text-center>
+      A silent killer disease.</p>
+   <ion-row> 
+      <ion-col width-34>
+         <button style="background-color: white;" (click)=showAlert2a();> 
+    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         </button>
+      </ion-col>
+      <ion-col width-33> 
+         <button style="background-color: white;" (click)=showAlert2b();> 
+   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         </button>
+      </ion-col>
+      <ion-col width-33> 
+         <button style="background-color: white;" (click)=showAlert2c();> 
+   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+   

@@ -1,0 +1,33 @@
+page-home {
+ 
+    .img-responsive{
+   
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+   background-size: cover;
+   }
+   
+
+  .buttondecor{
+  	background-color: yellow;
+  	padding: 10px 10px 10px 10px;  
+     }
+
+   .font{
+     font-weight: 20px;
+     font-size: 30px;      
+     font-family: 'Pacifico', cursive;
+   }
+   .trans{
+     position: relative;
+    -webkit-animation: mymove 2s;  
+    -webkit-animation-iteration-count: 2; 
+    animation: mymove 2s;
+    animation-iteration-count: 2;
+   }
+   @keyframes mymove {
+    from {left: 0px;}
+    to {left: 30px;}
+}
+
+}
