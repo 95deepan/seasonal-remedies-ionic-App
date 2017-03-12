@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
@@ -8,6 +9,10 @@ import { SummerPage } from '../pages/summer/summer';
 import { WinterPage } from '../pages/winter/winter';
 import { SpringPage } from '../pages/spring/spring';
 import { AutumnPage } from '../pages/autumn/autumn';
+
+export function provideStorage() {
+   return new Storage();
+ }
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { AutumnPage } from '../pages/autumn/autumn';
     AutumnPage,
     HomePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+              {provide: Storage, useFactory: provideStorage}]
 })
 export class AppModule {}

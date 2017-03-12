@@ -7,20 +7,30 @@ import { SummerPage } from '../pages/summer/summer';
 import { WinterPage } from '../pages/winter/winter';
 import { SpringPage } from '../pages/spring/spring';
 import { AutumnPage } from '../pages/autumn/autumn';
+import { HomePage } from '../pages/home/home';
 
-
+import { Storage } from '@ionic/storage';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MainPage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,public storage: Storage) {
     this.initializeApp();
+      this.storage.get('hasSeenSlides')
+      .then((hasSeenSlides) => {
+        if (hasSeenSlides) {
+          this.rootPage = MainPage;
+        } else {
+          this.rootPage = HomePage;
+        }
+        this.platformReady()
+      })
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -46,5 +56,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+   platformReady() {
+    // Call any initial plugins when ready
+    this.platform.ready().then(() => {
+      Splashscreen.hide();
+    });
   }
 }
