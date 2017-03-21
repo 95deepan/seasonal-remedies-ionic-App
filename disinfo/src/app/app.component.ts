@@ -3,11 +3,11 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { MainPage } from '../pages/main/main';
-import { SummerPage } from '../pages/summer/summer';
-import { WinterPage } from '../pages/winter/winter';
-import { SpringPage } from '../pages/spring/spring';
-import { AutumnPage } from '../pages/autumn/autumn';
 import { HomePage } from '../pages/home/home';
+import { AboutPage } from '../pages/about/about';
+import { TellPage } from '../pages/tell/tell';
+import { RatePage } from '../pages/rate/rate';
+import { TutorialPage } from '../pages/tutorial/tutorial';
 
 import { Storage } from '@ionic/storage';
 @Component({
@@ -18,7 +18,7 @@ export class MyApp {
 
   rootPage: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string,color: any}>;
 
   constructor(public platform: Platform,public storage: Storage) {
     this.initializeApp();
@@ -34,11 +34,11 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'All Seasons', component: MainPage },
-      { title: 'Summer', component: SummerPage },
-      { title: 'Winter', component: WinterPage },
-      { title: 'Spring', component: SpringPage },
-      { title: 'Autumn', component: AutumnPage }
+      { title: 'Home', component: MainPage, icon : 'home',color: "danger" },
+      { title: 'App Tutorial', component: TutorialPage,icon : 'md-help',color: "secondary" },
+      { title: 'Set Time', component: AboutPage,icon : 'md-time',color: "primary" },
+      { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "" },
+      { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "danger" }
     ];
 
   }

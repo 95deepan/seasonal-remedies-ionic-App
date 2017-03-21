@@ -9,6 +9,10 @@ import { SummerPage } from '../pages/summer/summer';
 import { WinterPage } from '../pages/winter/winter';
 import { SpringPage } from '../pages/spring/spring';
 import { AutumnPage } from '../pages/autumn/autumn';
+import { AboutPage } from '../pages/about/about';
+import { TellPage } from '../pages/tell/tell';
+import { RatePage } from '../pages/rate/rate';
+import { TutorialPage } from '../pages/tutorial/tutorial';
 
 export function provideStorage() {
    return new Storage();
@@ -22,7 +26,11 @@ export function provideStorage() {
     WinterPage,
     SpringPage,
     AutumnPage,
-    HomePage
+    HomePage,
+    AboutPage,
+    TellPage,
+    RatePage,
+    TutorialPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +43,11 @@ export function provideStorage() {
     WinterPage,
     SpringPage,
     AutumnPage,
-    HomePage
+    HomePage,
+    AboutPage,
+    TellPage,
+    RatePage,
+    TutorialPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage}]
