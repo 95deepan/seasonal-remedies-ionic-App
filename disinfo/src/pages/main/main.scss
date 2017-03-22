@@ -1,4 +1,8 @@
 page-main {
+  
+  .toolbar-ios ion-title{
+    padding: 0px; 
+  } 
   .swiper-slide {
     overflow-y: scroll;
     display: block;
@@ -8,22 +12,22 @@ page-main {
   }
   .segment-md .segment-button.segment-activated{
     border-bottom-color: white;
-    border-left-color: #33796f;
-    border-right-color: #33796f;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;
     border-bottom-width: 3px;
   }
   .segment-ios .segment-button{
     color: white;
-    border-left-color: #33796f;
-    border-right-color: #33796f;
-    border-bottom-color: #33796f;
-    border-top-color: #33796f;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;
+    border-bottom-color: #F4A460;
+    border-top-color: #F4A460;
   }
   .segment-ios .segment-button.segment-activated{
    border-bottom-color: white;
-    border-left-color: #33796f;
-    border-right-color: #33796f;  
-    background-color: #33796f;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;  
+    background-color: #F4A460;
     border-bottom-width: 3px;
   }
   .button-md{

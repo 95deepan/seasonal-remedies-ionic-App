@@ -8,35 +8,49 @@ import { NavController,Slides } from 'ionic-angular';
 })
 export class MainPage {
    @ViewChild(Slides) slides: Slides;
-
-   public query : string = 'summer';
-   public newvalue : string ='summer';
-  constructor(public navCtrl: NavController) 
-  { }
    
-   showdata(event){
+   Summer: Array<{title: string}>;
+   Winter: Array<{title: string}>;
+   Fall: Array<{title: string}>;
+   Spring: Array<{title: string}>;
+   public query : string = 'summer';
+  constructor(public navCtrl: NavController) 
+  { 
+    this.Summer = [
+      {title: 'Typhoid'},{title: 'Chicken Pox'},{title: 'Jaundice'},{title: 'HeadAche'},
+      {title: 'Skin Rashes'},{title: 'Back Pain'},{title: 'Measles'},{title: 'Mumps'},
+      {title: 'Flu'},{title: 'Conjunctivitis'}
+    ];
+    this.Winter = [
+      {title:'Common Cold'},{title:'Sore Throat'},{title:'Asthma'},{title:'Noro Virus'},
+      {title:'Painful Joints'},{title:'Cold Sores'},{title:'Heart Attacks'},{title:'Cold HAnds'},
+      {title:'Dry Skin'},{title:'Fever'}
+    ];
+    this.Fall = [
+      {title:'Sore Throat'},{title:'Allergic Asthma'},{title:'Stomach Ulcer'},
+      {title:'Heart Failure'},{title:'Pink eye'}
+    ];
+    this.Spring = [
+      {title:'Dark Circles Around Eyes'},{title:'Throat Itching'},{title:'Nasal Congestion'},
+      {title:'Clear Runny Nose'},{title:'Flu'}
+    ]
+   }
+   
+   showdata(){
      if(this.query == 'summer')
      {
-       //show summer
-       this.newvalue = 'summer';
        this.slides.slideTo(0,0);
      }
      if(this.query == 'winter')
-     {
-       //show winter
-       this.newvalue = 'winter';
+     {      
        this.slides.slideTo(1,0);
      }
      if(this.query == 'fall')
-     {
-       //show fall
-       this.newvalue = 'fall';
+     {     
        this.slides.slideTo(2,0);
      }
      if(this.query == 'spring')
      {
-       //show spring
-       this.newvalue = 'spring';
        this.slides.slideTo(3,0);
      }
    }

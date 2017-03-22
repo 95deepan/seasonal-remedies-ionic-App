@@ -3,9 +3,9 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title no-padding>Seasonal Influenza</ion-title>
+    <ion-title no-padding>Seasonal Influenza</ion-title> 
   </ion-toolbar> 
-  <ion-segment style="background-color:#33796f; color:white;" [(ngModel)]="query" (ionChange)="showdata($event)">
+  <ion-segment style="background-color:#F4A460; color:white;" [(ngModel)]="query" (ionChange)="showdata()">
       <ion-segment-button value="summer" class="segcolor">
         Summer
       </ion-segment-button>
@@ -20,42 +20,16 @@
       </ion-segment-button>
     </ion-segment> 
 </ion-header>
-  <!--
-<ion-grid> 
-  <ion-row>
-    <ion-col width-50><ion-card><button (click)=opensummer();>
-    <img class="imgcss" src="assets/img/sun.jpg"/></button>
-    <div text-center class="card-title" style="color:black; font-weight: 10px;">Summer</div>
-  </ion-card></ion-col>
-
-  <ion-col width-50><ion-card><button (click)=openwinter();>
-    <img class="imgcss" src="assets/img/winter.jpg"/></button>
-    <div text-center class="card-title" style="color:black; font-weight: 10px;">Winter</div>
-  </ion-card></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col width-50><ion-card><button (click)=openspring();>
-    <img class="imgcss" src="assets/img/spring.jpg"/></button>
-    <div text-center class="card-title" style="color:black; font-weight: 10px;">Spring</div>
-  </ion-card></ion-col>
-
-  <ion-col width-50><ion-card><button (click)=openautumn();>
-    <img class="imgcss" src="assets/img/autumn.jpg"/></button>
-    <div text-center class="card-title" style="color:black; font-weight: 10px;">Fall</div>
-  </ion-card></ion-col>
-  </ion-row>
-</ion-grid>
-<div text-center><button ion-button (click)=loading();><b>Your Location</b></button></div>
--->
+  
 <ion-slides (ionSlideDidChange)="slideChanged()">
                              <!-- Summer -->
-  <ion-slide no-padding style="background-image: url(assets/img/sun2.jpg);">
+  <ion-slide no-padding style="background-image: url(assets/img/slidebg.jpg);">
   <div style="padding-bottom: 95px;"></div>
-   <ion-card>
-  <img class="imgcss" src="assets/img/ckn.jpg"/>
+   <ion-card *ngFor="let sum of Summer">
+  <img class="imgcss" src="assets/img/summer.jpg"/>
   <ion-card-content>
     <ion-card-title text-center>
-      Chicken Pox
+      {{sum.title}}
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
@@ -70,33 +44,7 @@
       </ion-col>
       <ion-col width-33> 
          <button style="background-color: white;" (click)=showAlert1c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
- <ion-card>
-  <img class="imgcss" src="assets/img/eye.jpg"/>  
-  <ion-card-content>
-    <ion-card-title text-center>
-      Conjunctivitis
-      </ion-card-title>
-    
-   <ion-row> 
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert2a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+   <ion-icon style="color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>
@@ -105,13 +53,13 @@
   </ion-slide>
     <!-- Winter -->
     
-<ion-slide no-padding style="background-image: url(assets/img/snow.jpg);">
+<ion-slide no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
- <ion-card>
-  <img class="imgcss" src="assets/img/fever.jpg"/>
+ <ion-card *ngFor="let win of Winter">
+  <img class="imgcss" src="assets/img/winter.jpg"/>
   <ion-card-content>
     <ion-card-title text-center>
-      Fever
+      {{win.title}}
       </ion-card-title>
     <ion-row>
      <ion-col width-34>
@@ -132,68 +80,15 @@
     </ion-row>
   </ion-card-content>
 </ion-card>
-
-<ion-card>
-  <img class="imgcss" src="assets/img/cough.jpg"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Common cold
-      </ion-card-title>
-    <ion-row>
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert2a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <img class="imgcss" src="assets/img/mosquitobite.jpg"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Mosquito Bite and Possible diseases
-      </ion-card-title>
-   <ion-row>
-     <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert3a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert3b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert3c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-
 </ion-slide>
                            <!-- Fall -->
-<ion-slide no-padding style="background-image: url(assets/img/autumn.jpg);">
+<ion-slide no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
-   <ion-card>
-  <img class="imgcss" src="assets/img/flu.jpg"/>
+   <ion-card *ngFor="let fal of Fall">
+  <img class="imgcss" src="assets/img/fall.jpg"/>
   <ion-card-content>
     <ion-card-title text-center>
-      The Flu
+      {{fal.title}}
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
@@ -208,31 +103,6 @@
       </ion-col>
       <ion-col width-33> 
          <button style="background-color: white;" (click)=showAlert1c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
- <ion-card>
-  <img class="imgcss" src="assets/img/asthma.jpg"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Bronchitis & Bronchial Asthma
-      </ion-card-title>
-    <ion-row>
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert2a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2c();> 
    <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
@@ -242,13 +112,13 @@
 </ion-slide>
                                <!-- Spring -->
 
-<ion-slide no-padding style="background-image: url(assets/img/spring.jpg);">
+<ion-slide no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
-   <ion-card>
-  <img class="imgcss" src="assets/img/darkeye.jpg"/>
+   <ion-card *ngFor="let spr of Spring">
+  <img class="imgcss" src="assets/img/spring.jpg"/>
   <ion-card-content>
     <ion-card-title text-center>
-      Dark circles around eyes
+         {{spr.title}}
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
@@ -263,83 +133,6 @@
       </ion-col>
       <ion-col width-33> 
          <button style="background-color: white;" (click)=showAlert1c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
- <ion-card>
-  <img class="imgcss" src="assets/img/itchythroat.png"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Throat Itching
-      </ion-card-title>
-   <ion-row>
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert2a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert2c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <img class="imgcss" src="assets/img/nasal.png"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Nasal Congestion
-      </ion-card-title>
-    <ion-row>
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert3a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert3b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert3c();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
-         </button>
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-  
-<ion-card>
-  <img class="imgcss" src="assets/img/rednose.jpg"/>
-  <ion-card-content>
-    <ion-card-title text-center>
-      Clear Runny Nose
-      </ion-card-title>
-    <ion-row>
-      <ion-col width-34>
-         <button style="background-color: white;" (click)=showAlert4a();> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert4b();> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
-         </button>
-      </ion-col>
-      <ion-col width-33> 
-         <button style="background-color: white;" (click)=showAlert4c();> 
    <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>

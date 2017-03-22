@@ -5,10 +5,6 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
-import { SummerPage } from '../pages/summer/summer';
-import { WinterPage } from '../pages/winter/winter';
-import { SpringPage } from '../pages/spring/spring';
-import { AutumnPage } from '../pages/autumn/autumn';
 import { AboutPage } from '../pages/about/about';
 import { TellPage } from '../pages/tell/tell';
 import { RatePage } from '../pages/rate/rate';
@@ -22,10 +18,6 @@ export function provideStorage() {
   declarations: [
     MyApp,
     MainPage,
-    SummerPage,
-    WinterPage,
-    SpringPage,
-    AutumnPage,
     HomePage,
     AboutPage,
     TellPage,
@@ -39,10 +31,6 @@ export function provideStorage() {
   entryComponents: [
     MyApp,
     MainPage,
-    SummerPage,
-    WinterPage,
-    SpringPage,
-    AutumnPage,
     HomePage,
     AboutPage,
     TellPage,

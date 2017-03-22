@@ -34,11 +34,11 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: MainPage, icon : 'home',color: "danger" },
-      { title: 'App Tutorial', component: TutorialPage,icon : 'md-help',color: "secondary" },
-      { title: 'Set Time', component: AboutPage,icon : 'md-time',color: "primary" },
-      { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "" },
-      { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "danger" }
+      { title: 'Home', component: MainPage, icon : 'home',color: "primary" },
+      { title: 'Set Location', component: TutorialPage,icon : 'ios-pin',color: "secondary" },
+      { title: 'Set Time', component: AboutPage,icon : 'md-time',color: "danger" },
+      { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "secondary" },
+      { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "appTheme" }
     ];
 
   }
