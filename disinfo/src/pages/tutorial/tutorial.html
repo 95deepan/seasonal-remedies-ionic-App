@@ -5,12 +5,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>App Tutorial</ion-title>
+    <ion-title>Set Location</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> 
 
 
-<ion-content padding>
-Content will be added soon
-</ion-content>
+<ion-content no-padding>
+  <div style="height: 75%; width: 100%" #map id="map"></div>
+    <ion-row>
+     <button ion-button full color="appTheme" (click)="track();">
+       Track Your Location
+     </button>
+  </ion-row>  
+  <ion-row>
+    <button ion-button full color="appTheme" (click)="locate();" >
+       Submit
+    </button>
+  </ion-row>
+  
+  </ion-content>

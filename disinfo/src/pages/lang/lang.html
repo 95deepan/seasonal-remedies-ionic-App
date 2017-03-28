@@ -1,0 +1,43 @@
+<ion-header>
+   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Change Language
+    </ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<ion-content padding>
+   <!--
+      <ion-select style="color:white;"  [(ngModel)]="languageSelected" (ionChange)='setLanguage()' [cancelText]="canccel">
+       <ion-option *ngFor="let item of languages" [value]="item.code">{{item.name}}</ion-option>
+    </ion-select> 
+    -->
+
+<ion-list radio-group [(ngModel)]="languageSelected">
+  <ion-item>
+    <ion-label>English</ion-label>
+    <ion-radio value="en" checked></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>తెలుగు</ion-label>
+    <ion-radio value="tel"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>தமிழ்</ion-label>
+    <ion-radio value="tam"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>हिंदी</ion-label>
+    <ion-radio value="hi"></ion-radio>
+  </ion-item>
+  
+</ion-list>
+<button ion-button color="appTheme" (click)="setLanguage();">
+  Submit
+</button>
+</ion-content>
+
+     

@@ -1,22 +1,30 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
 /*
-  Generated class for the Tell page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  Tamil:
+    summer : வெயில்
+    winter : குளிர்
+    fall   : இலையுதிர்
+    spring : வசந்த காலம்
+    rainy  : மழை
+
 */
 @Component({
   selector: 'page-tell',
   templateUrl: 'tell.html'
 })
 export class TellPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TellPage');
-  }
+  Summer: any = [];
+  Winter: any=[];
+  Fall: any=[];
+  Spring : any=[];
+  Rainy : any=[];
+  constructor(
+          public navCtrl: NavController,
+           public navParams: NavParams,
+            ) {
+                
+            }
 
 }

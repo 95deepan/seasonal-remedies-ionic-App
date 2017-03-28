@@ -1,8 +1,32 @@
 page-main {
-  
-  .toolbar-ios ion-title{
-    padding: 0px; 
+  .fab-pos{
+     
+  }
+   .cardbg{
+     background-color: #edd6bb;
+   }
+  .fab-md{
+    background-color: white;
+  }
+  .fab-ios{
+    background-color: white;
+  }
+  .card-md{
+    border-radius: 5px;
+  }
+  .card-ios{
+    border-radius: 5px;
+  }
+  .toolbar-title-md{
+    padding-left: 1px !important;
+  }
+  .toolbar-title-ios{
+    text-align: left;
+    padding-left: -20px;
   } 
+  .toolbar-ios ion-title {
+    left: -35px;
+  }
   .swiper-slide {
     overflow-y: scroll;
     display: block;
@@ -31,19 +55,14 @@ page-main {
     border-bottom-width: 3px;
   }
   .button-md{
-     background-color: #106f61;
+     background-color: #edd6bb;
    }
     .button-ios{
-     background-color: #106f61;
+     background-color: #edd6bb;
    }
   .imgcss{
       margin-top: 0px;
       width: 100%;
       height: auto;   
-   }
- .font{
-     font-weight: 20px;
-     font-size: 30px;      
-     font-family: 'Pacifico', cursive;
    }
 }

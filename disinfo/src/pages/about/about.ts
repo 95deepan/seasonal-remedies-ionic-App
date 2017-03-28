@@ -8,7 +8,7 @@ import * as moment from 'moment';
   templateUrl: 'about.html'
 })
 export class AboutPage {
-    notifyTime: any;
+    notifyTime: any = "8:00 AM" ;
     notifications: any[] = [];
     days: any[];
     chosenHours: number;
@@ -24,13 +24,13 @@ export class AboutPage {
         this.chosenMinutes = new Date().getMinutes();
  
         this.days = [
-            {title: 'Monday', dayCode: 1, checked: false},
-            {title: 'Tuesday', dayCode: 2, checked: false},
-            {title: 'Wednesday', dayCode: 3, checked: false},
-            {title: 'Thursday', dayCode: 4, checked: false},
-            {title: 'Friday', dayCode: 5, checked: false},
-            {title: 'Saturday', dayCode: 6, checked: false},
-            {title: 'Sunday', dayCode: 0, checked: false}
+            {title: 'Monday', dayCode: 1, checked: true},
+            {title: 'Tuesday', dayCode: 2, checked: true},
+            {title: 'Wednesday', dayCode: 3, checked: true},
+            {title: 'Thursday', dayCode: 4, checked: true},
+            {title: 'Friday', dayCode: 5, checked: true},
+            {title: 'Saturday', dayCode: 6, checked: true},
+            {title: 'Sunday', dayCode: 0, checked: true}
         ];
  
     }
@@ -38,7 +38,17 @@ export class AboutPage {
  ionViewDidLoad(){
  
     }
- 
+    toggle(){
+        this.days = [
+            {title: 'Monday', dayCode: 1, checked: false},
+            {title: 'Tuesday', dayCode: 2, checked: false},
+            {title: 'Wednesday', dayCode: 3, checked: false},
+            {title: 'Thursday', dayCode: 4, checked: false},
+            {title: 'Friday', dayCode: 5, checked: false},
+            {title: 'Saturday', dayCode: 6, checked: false},
+            {title: 'Sunday', dayCode: 0, checked: false    }
+        ];
+    }
     timeChange(time){
        this.chosenHours = time.hour.value;
       this.chosenMinutes = time.minute.value;
@@ -90,7 +100,7 @@ export class AboutPage {
             this.notifications = [];
  
             let alert = this.alertCtrl.create({
-                title: 'Notifications set',
+                subTitle: 'Notifications set',
                 buttons: ['Ok']
             });
  
@@ -105,7 +115,7 @@ export class AboutPage {
         LocalNotifications.cancelAll();
  
     let alert = this.alertCtrl.create({
-        title: 'Successfully Disabled Notifications',
+        subTitle: 'Successfully Disabled Notifications',
         buttons: ['Ok']
     });
  

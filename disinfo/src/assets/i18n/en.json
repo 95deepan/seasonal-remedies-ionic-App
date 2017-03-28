@@ -1,0 +1,8 @@
+{ 
+   "TITLE":"Seasonal Influenza",
+   "SUMMER":"Summer",
+   "WINTER":"Winter",
+   "FALL":"Fall",
+   "SPRING":"Spring",
+   "RAINY":"Rainy"
+}

@@ -17,14 +17,16 @@
           <ion-label>Notify me at: </ion-label>
           <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
         </ion-item>
- 
-        <ion-item>
-            <ion-label>On the following days:</ion-label>
-        </ion-item>
- 
+        <ion-row>
+         <ion-col width-50>
+            <button ion-button color="appTheme" (click)="toggle();">
+               Customise
+            </button>
+         </ion-col>
+        </ion-row>
         <ion-item *ngFor="let day of days">
             <ion-label item-left>{{day.title}}</ion-label>
-            <ion-checkbox [(ngModel)]="day.checked" color="appTheme"></ion-checkbox>
+            <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
  
     </ion-list>
