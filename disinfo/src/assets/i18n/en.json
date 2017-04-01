@@ -4,5 +4,8 @@
    "WINTER":"Winter",
    "FALL":"Fall",
    "SPRING":"Spring",
-   "RAINY":"Rainy"
+   "RAINY":"Rainy",
+   "INFO":"Info",
+   "CURE":"Cure",
+   "PREC":"Precaution"
 }

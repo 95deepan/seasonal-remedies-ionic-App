@@ -36,6 +36,9 @@ $colors: (
   tell:          #fc925d
 );
 $toolbar-background : #F4A460;
+.alert-md .alert-button{
+  color: #fc925d !important;
+}
 
 // App iOS Variables
 // --------------------------------------------------

@@ -1,17 +1,21 @@
-<ion-slides pager>
+<ion-slides pager effect="coverflow" autoplay="3000"> 
 
   <ion-slide style="color:navajowhite;  background-image: url(assets/img/slidebg.jpg);">
     <h2 class="font"><b>Seasons</b> may get delayed<br>But not <b>Seasonal diseases</b></h2>
-  
+    <button ion-button icon-only (click)="go();"> <ion-icon name="md-exit" color="light"></ion-icon>
+    </button>
   </ion-slide> 
 
   <ion-slide style="color: navajowhite;background-image: url(assets/img/slidebg.jpg);vertical-align:middle;  max-width: 100% ;height:auto;">
-    <h2 class="font">We will Notify you daily with the Seasons and the Precautions to be taken</h2>
+    <h2 class="font">We will Notify you daily with the Seasonal diseases and the Precautions to be taken</h2>
+    <button ion-button icon-only (click)="goto();"> <ion-icon name="md-exit" color="light"></ion-icon>
+    </button>
   </ion-slide>
 
   <ion-slide style="color:navajowhite; background-image: url(assets/img/slidebg.jpg);vertical-align:middle;  max-width: 100% ;height:auto;">
     <h2 class="font">Take precautions before the disease Attacks !<br><br><br><b>Live long Life</b></h2>
-    <button ion-button (click)=loading();openmain();><b>Get Started</b></button>
+    <button ion-button (click)=loading();openmain();><b>Get Started</b>
+    </button>
   </ion-slide>
 
 </ion-slides>       

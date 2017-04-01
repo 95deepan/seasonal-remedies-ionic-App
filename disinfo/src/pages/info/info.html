@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Info</ion-title>  
+    <ion-buttons end>
+        <button ion-button icon-only (click)="dismiss()">
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let sum of Summer" padding>
+<div *ngFor="let disease of sum.Diseases" style="margin-top: 56px;">
+  
+    <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
+
+ <div>
+   <p> {{disease.Description.prec}}  </p>
+</div>
+</div>
+</ion-content>

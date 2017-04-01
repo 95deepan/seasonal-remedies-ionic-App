@@ -6,7 +6,7 @@
     <ion-title no-padding>{{ 'TITLE' | translate }}</ion-title> 
     <ion-buttons end>
       <button ion-button icon-only (click)="lang();">
-        <ion-icon name="md-more" color="light">
+        <ion-icon name="md-more" color="light"> 
         </ion-icon>
       </button>
     </ion-buttons>
@@ -56,7 +56,7 @@
          <button style="background-color: white;" (click)=cure(i);> 
    <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
-      </ion-col>
+      </ion-col> 
       <ion-col width-33> 
          <button style="background-color: white;" (click)=prec(i);> 
    <ion-icon style="color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
@@ -64,48 +64,9 @@
       </ion-col>
     </ion-row>
   </ion-card-content>
-
-  <ion-card-content *ngIf="showinfo == true" class="cardbg">
-    
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Info</b>
-      </ion-card-title>
-      <p> {{disease.Description.info}}</p>
-  </ion-card-content>
-   <ion-card-content *ngIf="showcure == true" class="cardbg">
-     
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Cure</b>
-      </ion-card-title>
-      <p> {{disease.Description.cure}}</p>
-  </ion-card-content>
-
- <ion-card-content *ngIf="showprec == true" class="cardbg">
-   
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Precaution</b>
-      </ion-card-title>
-      <p> {{disease.Description.prec}}</p>
-  </ion-card-content>
 </ion-card>
   </ion-slide>
-    <!-- Winter -->
-    
+    <!-- Winter -->  
 <ion-slide *ngFor="let win of Winter" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
  <ion-card *ngFor="let disease of win.Diseases">
@@ -132,43 +93,7 @@
       </ion-col>
     </ion-row>
   </ion-card-content>
-   <ion-card-content *ngIf="showinfo == true" class="cardbg">
-    
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Info</b>
-      </ion-card-title>
-      <p> {{disease.Description.info}}</p>
-  </ion-card-content>
-   <ion-card-content *ngIf="showcure == true" class="cardbg">
-     
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Cure</b>
-      </ion-card-title>
-      <p> {{disease.Description.cure}}</p>
-  </ion-card-content>
-
- <ion-card-content *ngIf="showprec == true" class="cardbg">
    
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Precaution</b>
-      </ion-card-title>
-      <p> {{disease.Description.prec}}</p>
-  </ion-card-content>
 </ion-card>
 </ion-slide>
                            <!-- Fall -->
@@ -197,43 +122,6 @@
          </button>
       </ion-col>
     </ion-row>
-  </ion-card-content>
-   <ion-card-content *ngIf="showinfo == true" class="cardbg">
-    
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Info</b>
-      </ion-card-title>
-      <p>  {{disease.Description.info}}</p>
-  </ion-card-content>
-   <ion-card-content *ngIf="showcure == true" class="cardbg">
-     
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Cure</b>
-      </ion-card-title>
-      <p> {{disease.Description.cure}}</p>
-  </ion-card-content>
-
- <ion-card-content *ngIf="showprec == true" class="cardbg">
-   
-        <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Precaution</b>
-      </ion-card-title>
-      <p> {{disease.Description.prec}}a</p>
   </ion-card-content>
 </ion-card>
 </ion-slide>
@@ -265,43 +153,6 @@
       </ion-col>
     </ion-row>
   </ion-card-content>
-   <ion-card-content *ngIf="showinfo == true" class="cardbg">
-    
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Info</b>
-      </ion-card-title>
-      <p> {{disease.Description.info}}</p>
-  </ion-card-content>
-   <ion-card-content *ngIf="showcure == true" class="cardbg">
-     
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Cure</b>
-      </ion-card-title>
-      <p> {{disease.Description.cure}}</p>
-  </ion-card-content>
-
- <ion-card-content *ngIf="showprec == true" class="cardbg">
-   
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Precaution</b>
-      </ion-card-title>
-      <p> {{disease.Description.prec}}</p>
-  </ion-card-content>
 </ion-card>
 </ion-slide>
              <!-- for Rainy Season -->
@@ -330,43 +181,6 @@
          </button>
       </ion-col>
     </ion-row>
-  </ion-card-content>
-   <ion-card-content *ngIf="showinfo == true" class="cardbg">
-    
-      <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Info</b> 
-      </ion-card-title>
-      <p> {{disease.Description.info}}</p>
-  </ion-card-content>
-   <ion-card-content *ngIf="showcure == true" class="cardbg">
-     
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Cure</b>
-      </ion-card-title>
-      <p> {{disease.Description.cure}}</p>
-  </ion-card-content>
-
- <ion-card-content *ngIf="showprec == true" class="cardbg">
-   
-       <button class="fab-pos" icon-only (click)="close();">
-          <ion-icon name="ios-arrow-up-outline" color="appTheme">
-          </ion-icon>
-        </button>
-    
-     <ion-card-title text-center>
-      <b>Precaution</b>
-      </ion-card-title>
-      <p> {{disease.Description.prec}}</p>
   </ion-card-content>
 </ion-card>
 </ion-slide>     

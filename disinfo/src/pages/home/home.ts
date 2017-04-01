@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MainPage } from '../main/main';
-import { NavController } from 'ionic-angular';
+import { NavController,Slides } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+ @ViewChild(Slides) slides: Slides;
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
@@ -29,6 +29,12 @@ export class HomePage {
       duration: 1500
     });
     loader.present();
+  }
+  go(){
+    this.slides.slideTo(1,0);
+  }
+  goto(){
+    this.slides.slideTo(2,0);
   }
 }
    

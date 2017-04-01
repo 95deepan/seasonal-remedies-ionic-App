@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
+//import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { Http } from '@angular/http';
 
 import { HomePage } from '../pages/home/home';
@@ -12,6 +13,9 @@ import { TellPage } from '../pages/tell/tell';
 import { RatePage } from '../pages/rate/rate';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { LangPage } from '../pages/lang/lang';
+import { InfoPage } from '../pages/info/info';
+import { CurePage } from '../pages/cure/cure';
+import { PrecPage } from '../pages/prec/prec';
 
 import { Data } from '../providers/data';
 import { LanguageService } from '../providers/language.service';
@@ -31,7 +35,10 @@ export function createTranslateLoader(http: Http) {
     TellPage,
     RatePage,
     TutorialPage,
-    LangPage
+    LangPage,
+    InfoPage,
+    CurePage,
+    PrecPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -50,7 +57,10 @@ export function createTranslateLoader(http: Http) {
     TellPage,
     RatePage,
     TutorialPage,
-    LangPage
+    LangPage,
+    InfoPage,
+    CurePage,
+    PrecPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage},

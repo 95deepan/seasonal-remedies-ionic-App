@@ -15,8 +15,8 @@
             "Description":{
              "name":"Chicken Pox",
              "info":"Chickenpox, also known as varicella, is a highly contagious disease caused by the initial infection with varicella zoster virus (VZV). The disease results in a characteristic skin rash that forms small, itchy blisters, which eventually scab over.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Actually there is no way to cure chicken pox, but there are few ways to get cured by itself by taking oatmeal baths,applying cool compresses and taking antihistamines",
+             "prec":"Take Antiviral medication once you feel some symptoms of chicken pox, one such drug is Aciclovir"
             }
         },
         {
@@ -24,8 +24,8 @@
             "Description":{
              "name":"Jaundice",
              "info":"Jaundice, also known as icterus, is a term used to describe a yellowish tinge to the skin and sclerae (the white part of the eye) that is caused by an excess of bilirubin in the blood (hyperbilirubinemia).Body fluids may also be yellow.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Liver biopsy may be required if it is post-hepatic jaundice",
+             "prec":"Avoid Liquor consumption,Maintain body wegight,Have more water,Proper exposure to sunlight"
             }
         },
         {
@@ -33,8 +33,8 @@
             "Description":{
              "name":"Typhoid",
              "info":"Typhoid is an infection caused by the bacteria Salmonella typhimurium. The bacterium lives in the intestines and bloodstream of humans. It is spread between individuals by direct contact with the feces of an infected person.No animals carry this disease, so transmission is always human to human.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -42,8 +42,8 @@
             "Description":{
              "name":"Skin Rashes",
              "info":"Eczema, or atopic dermatitis, is a rash that primarily occurs in people with asthma or allergies.The rash is often reddish and itchy with a scaly texture. Psoriasis is a common skin condition  that can cause a scaly, itchy, red rash to form along the scalp, elbows, and joints.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -51,8 +51,8 @@
             "Description":{
              "name":"Back Pain",
              "info":"pidural steroid injections are most commonly used in situations of radicular pain, which is a radiating pain that is transmitted away from the spine by an irritated spinal nerve. Irritation of a spinal nerve in the low back (lumbar radiculopathy) causes pain that goes down the leg.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -60,8 +60,8 @@
             "Description":{
              "name":"Measlses",
              "info":"Measles, or rubeola, is a viral infection of the respiratory system. Measles is a very contagious disease that can spread through contact with infected mucus and saliva. An infected person can release the infection into the air when they cough or sneeze.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -69,8 +69,8 @@
             "Description":{
              "name":"Mumps",
              "info":"The most obvious symptom is swelling of one or both of the salivary glands on the sides of the face. These glands are called the parotid glands, when they swell, the patient develops a hamster-like face. Sometimes the mumps virus can also cause inflammation of the testis, ovary, pancreas, or meninges.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -78,17 +78,17 @@
             "Description":{
              "name":"Flu",
              "info":"The flu is a contagious respiratory illness caused by influenza viruses that infect the nose, throat, and lungs. It can cause mild to severe illness, and at times can lead to death. The best way to prevent the flu is by getting a flu vaccine each year.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Conjunctivitis",
             "Description":{
              "name":"Conjunctivitis",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Red eyes with burning sensation that pains frequently and easily communicable disease",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         }
         ]
@@ -100,8 +100,8 @@
             "Description":{
              "name":"Common Cold",
              "info":"Common cold, also known simply as a cold, is a viral infectious disease of the upper respiratory tract that primarily affects the nose. The throat, sinuses, and voice box may also be affected. They include coughing,sore throat, runny nose, sneezing, headache, and fever.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -109,8 +109,8 @@
             "Description":{
              "name":"Sore Throat",
              "info":"A sore throat is pain, scratchiness or irritation of the throat that often worsens when you swallow. The most common cause of a sore throat (pharyngitis) is a viral infection, such as a cold or the flu. A sore throat caused by a virus resolves on its own.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -118,8 +118,8 @@
             "Description":{
              "name":"Asthma",
              "info":"Asthma is a chronic disease involving the airways in the lungs. This makes it difficult for air to move in and out of the lungs, causing symptoms such as coughing, wheezing, shortness of breath and/or chest tightness.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -127,8 +127,8 @@
             "Description":{
              "name":"Noro Virus",
              "info":"Norovirus is a very contagious virus that can infect anyone. You can get it from an infected person, contaminated food or water, or by touching contaminated surfaces. The virus causes your stomach or  intestines or both to get inflamed. This leads you to have stomach pain, nausea, and diarrhea and to throw up.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -136,8 +136,8 @@
             "Description":{
              "name":"Painful Joints",
              "info":"Joints form the connections between bones. They provide support and help you move. ... Many different conditions can lead to painful joints, including osteoarthritis, rheumatoid arthritis, bursitis, gout, strains, sprains, and other injuries. Joint pain is extremely common.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -145,8 +145,8 @@
             "Description":{
              "name":"Cold Sores",
              "info":"The herpes simplex virus usually enters the body through a break in the skin around or inside the mouth.It is usually spread when a person touches a cold sore or touches infected fluid-such as from sharing  eating utensils or razors, kissing an infected person, or touching that person's saliva.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -154,8 +154,8 @@
             "Description":{
              "name":"Heart Attcks",
              "info":"Heart attacks most often occur as a result of coronary heart disease (CHD), also called coronary artery disease. ... These arteries supply oxygen-rich blood to your heart. When plaque builds up in the arteries,the condition is called atherosclerosis.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -163,8 +163,8 @@
             "Description":{
              "name":"Cold Hands",
              "info":"Although the cause of cold hands can be as simple as being in a cold environment or your body's natural response to maintain its normal temperature, if you have ongoing problems with cold hands, there could be a number of causes. Having cold hands could signal a problem with your blood circulation or the blood vessels in your hands",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -172,17 +172,17 @@
             "Description":{
              "name":"Dry Skin",
              "info":"Skin conditions and rashes. Many skin conditions itch, including eczema (dermatitis), psoriasis, scabies,lice, chickenpox and hives. The itching usually affects specific areas and is accompanied by other signs,such as red, irritated skin or bumps and blisters.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Fever",
             "Description":{
              "name":"Fever",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Increased body temperature, Soaked eyes,over Tiredness",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         }
         ]
@@ -194,8 +194,8 @@
             "Description":{
              "name":"Sore Throat",
              "info":" A sore throat is pain, scratchiness or irritation of the throat that often worsens when you swallow.The most common cause of a sore throat (pharyngitis) is a viral infection, such as a cold or the flu. A sore throat caused by a virus resolves on its own.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -203,8 +203,8 @@
             "Description":{
              "name":"Allergic Asthma",
              "info":"The symptoms that go along with allergic asthma show up after you breathe things called allergens (or allergy triggers) like pollen, dust mites, or mold. If you have asthma (allergic or non-allergic), it usually gets worse after you exercise in cold air or after breathing smoke, dust, or fumes.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -212,8 +212,8 @@
             "Description":{
              "name":"Stomach ulcer",
              "info":"The decrease in the stomach's mucus lining that leads to an ulcer is usually caused by one of the following: an infection with the bacterium Helicobacter pylori (H. pylori) long-term use of nonsteroidal anti-inflammatory drugs (NSAIDs), such as aspirin and ibuprofen.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -221,8 +221,8 @@
             "Description":{
              "name":"Heart Failure",
              "info":"Heart failure is a condition in which the heart can't pump enough blood to meet the body's needs.In some cases, the heart can't fill with enough blood. In other cases, the heart can't pump blood to the rest of the body with enough force. Some people have both problems.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -230,8 +230,8 @@
             "Description":{
              "name":"Pink eye",
              "info":"Pinkeye (also called conjunctivitis) is redness and swelling of the conjunctiva, the mucous membrane that lines the eyelid and eye surface. The lining of the eye is usually clear. ... Most cases of pinkeye are caused by: Infections caused by viruses or bacteria.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         }]
     }],      
@@ -241,36 +241,36 @@
             "Dname":"Dark Circles Around Eyes",
             "Description":{
              "name":"Dark Circles Around Eyes",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Mild black shades around eyes that gives odd look.",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Throat Itching",
             "Description":{
              "name":"Throat Itching",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Feels pain when we swollow any bolus.",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Nasal Congestion",
             "Description":{
              "name":"Nasal Congestion",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Gives irritated feel while doing important chores.",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Clear Runny Nose",
             "Description":{
              "name":"Clear Runny Nose",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Liquy mucus keeps on expelled by nose gives irritation and leads to head ache.",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
@@ -278,8 +278,8 @@
             "Description":{
              "name":"Flu",
              "info":"The flu is a contagious respiratory illness caused by influenza viruses that infect the nose, throat,and lungs. It can cause mild to severe illness, and at times can lead to death. The best way to prevent the flu is by getting a flu vaccine each year.",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         }
         ]
@@ -290,27 +290,27 @@
             "Dname":"Common fever",
             "Description":{
              "name":"Common fever",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Increased body temperature with shivering body and mild headache and body tiredness",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Throat Infection",
             "Description":{
              "name":"Throat Infection",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Increased body temperature with shivering body and mild headache and body tiredness",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         },
         {
             "Dname":"Cold & Fever",
             "Description":{
              "name":"Cold & Fever",
-             "info":"Test Data",
-             "cure":"Test Data",
-             "prec":"Test Data"
+             "info":"Increased body temperature with shivering body and mild headache and body tiredness",
+             "cure":"Cold compresses, Increased fluid intakes, Homemade ORS, Apple cider vinegar",
+             "prec":"Drink boiled water, Avoid street foods, also avoid unhealthy Drinks"
             }
         }]
     }]
