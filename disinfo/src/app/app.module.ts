@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { Http } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
 
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
@@ -26,6 +27,16 @@ export function provideStorage() {
 export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyC3k-OBD2X4tihUN-lvOOuySNNDGZ41QF8",
+    authDomain: "seasonal-a28ac.firebaseapp.com",
+    databaseURL: "https://seasonal-a28ac.firebaseio.com",
+    projectId: "seasonal-a28ac",
+    storageBucket: "seasonal-a28ac.appspot.com",
+    messagingSenderId: "622614305839"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,10 +53,11 @@ export function createTranslateLoader(http: Http) {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
     TranslateModule.forRoot({
     provide: TranslateLoader,
     useFactory: (createTranslateLoader),
-    deps: [Http]
+    deps: [Http],
   })
   ],
   bootstrap: [IonicApp],

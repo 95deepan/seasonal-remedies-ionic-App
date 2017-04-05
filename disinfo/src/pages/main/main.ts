@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-import { NavController,Slides,Platform, AlertController, LoadingController,ModalController } from 'ionic-angular';
+import { NavController,Slides,Platform, AlertController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 import { LangPage } from '../lang/lang';
@@ -35,8 +35,8 @@ export class MainPage {
       public platform: Platform,
          public loadCtrl : LoadingController,
          public http : Http,
-          public alrtCrtl: AlertController,
-           public modalCtrl : ModalController
+          public alrtCrtl: AlertController
+           
 
          //  private nativePageTransitions: NativePageTransitions
       ) 
@@ -95,15 +95,14 @@ export class MainPage {
   lang(){
     this.navCtrl.push(LangPage);
   }
-  info(){
-     let modal = this.modalCtrl.create(InfoPage);
-     modal.present();    
+  info(id){
+      this.navCtrl.push(InfoPage,{name: id},{ animate: true, direction: 'forward' });
   }
-  cure(){
-     this.navCtrl.push(CurePage);
+  cure(id){
+     this.navCtrl.push(CurePage,{name: id},{ animate: true, direction: 'forward' });
    }
-   prec(){
-     this.navCtrl.push(PrecPage);
+   prec(id){
+     this.navCtrl.push(PrecPage,{name: id},{ animate: true, direction: 'forward' });
    }
    showdata(){
        switch(this.query){

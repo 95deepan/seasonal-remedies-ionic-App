@@ -9,14 +9,68 @@
 </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor="let sum of Summer" padding>
-<div *ngFor="let disease of sum.Diseases" style="margin-top: 56px;">
+ 
+<ion-content *ngIf="sumsel == true" padding>
+<div *ngFor="let sum of Summer">
+<div *ngFor="let disease of sum.Diseases" style="margin-top: 5px;">
   
     <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
 
  <div>
-   <p> {{disease.Description.cure}}  </p>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp; {{disease.Description.cure}}  </p>
+</div>
 </div>
 </div>
 </ion-content>
 
+<ion-content *ngIf="winsel == true" padding>
+<div *ngFor="let win of Winter">
+<div *ngFor="let disease of win.Diseases" style="margin-top: 5px;">
+  
+    <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
+
+ <div>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp; {{disease.Description.cure}}  </p>
+</div>
+</div>
+</div>
+</ion-content>
+
+<ion-content *ngIf="falsel == true" padding>
+<div *ngFor="let fal of Fall">
+<div *ngFor="let disease of fal.Diseases" style="margin-top: 5px;">
+  
+    <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
+
+ <div>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp; {{disease.Description.cure}}  </p>
+</div>
+</div>
+</div>
+</ion-content>
+
+<ion-content *ngIf="sprsel == true" padding>
+<div *ngFor="let spr of Spring">
+<div *ngFor="let disease of spr.Diseases" style="margin-top: 5px;">
+  
+    <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
+
+ <div>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp; {{disease.Description.cure}}  </p>
+</div>
+</div>
+</div>
+</ion-content>
+
+<ion-content *ngIf="raisel == true" padding>
+<div *ngFor="let rai of Rainy">
+<div *ngFor="let disease of rai.Diseases" style="margin-top: 5px;">
+  
+    <ion-badge color="appTheme">  {{disease.Description.name}}   </ion-badge>
+
+ <div>
+   <p> &nbsp;&nbsp;&nbsp;&nbsp; {{disease.Description.cure}}  </p>
+</div>
+</div>
+</div>
+</ion-content>

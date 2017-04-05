@@ -13,17 +13,25 @@
 
 <ion-content padding>
 
-<ion-card>
-  <ion-list>
-    <ion-item>
-      <ion-label floating color="dark" class="sai">Email</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating color="dark" class="bk">Message</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
+<ion-card>  
+  <ion-card-content padding>
+    <div text-center>
+     <b> Message Preview </b>
+    </div> <br> {{message}}
+  </ion-card-content>
 </ion-card>
 
+<ion-list>
+    <ion-item>
+      <ion-label floating color="dark">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating color="dark">Message</ion-label>
+      <ion-input type="text" [(ngModel)]="message"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div text-center>
+   <button ion-button (click)="submit();">Submit</button>
+  </div>
 </ion-content>
