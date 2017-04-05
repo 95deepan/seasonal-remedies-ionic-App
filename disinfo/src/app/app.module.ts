@@ -6,6 +6,7 @@ import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-tra
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
+import { Network } from '@ionic-native/network';
 
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
@@ -77,7 +78,8 @@ export const firebaseConfig = {
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage},
               LanguageService,
-              Data
+              Data,
+              Network
               ]
 })
 export class AppModule {}

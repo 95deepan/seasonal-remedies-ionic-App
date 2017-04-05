@@ -2,6 +2,8 @@ import { Component,ViewChild } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Geolocation } from 'ionic-native';
+import { Network } from '@ionic-native/network';
+
 import 'rxjs/add/operator/map';
 
 import { MainPage } from '../main/main';
@@ -19,13 +21,25 @@ export class TutorialPage {
   newlat: any;
   newlon: any;
   weather = "";
-  camera = "";
+  net: string ;
   constructor(
     public navCtrl: NavController,
      public loadCtrl: LoadingController,
      public alertCtrl: AlertController,
-      public http: Http
-     ) {}
+      public http: Http,
+       private network: Network
+     ) {
+       let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+        console.log('network was disconnected :-(');
+        this.net = "lost" ;
+       });
+       if(this.net == "lost"){
+         let alert = this.alertCtrl.create({
+          subTitle: 'Please check your internet connection'
+        });
+        alert.present();
+       }
+     }
 
   ionViewDidLoad() {
     this.initMap();
