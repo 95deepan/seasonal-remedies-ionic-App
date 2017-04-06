@@ -7,6 +7,7 @@ import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-tra
 import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { Network } from '@ionic-native/network';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
@@ -82,7 +83,8 @@ export const firebaseConfig = {
               {provide: Storage, useFactory: provideStorage},
               LanguageService,
               Data,
-              Network
+              Network,
+              BackgroundMode
               ]
 })
 export class AppModule {}

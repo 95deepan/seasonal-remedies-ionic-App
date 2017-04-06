@@ -1,22 +1,67 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
-/*
-  Generated class for the Rate page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-rate',
   templateUrl: 'rate.html'
 })
 export class RatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  one:boolean = false;
+  two:boolean = false;
+  three:boolean = false;
+  four:boolean = false;
+  five:boolean = false;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RatePage');
+  showsubmit:boolean = false;
+
+  constructor(
+    public navCtrl: NavController
+     ) {}
+  ionViewDidLoad() {}
+
+  one1(){
+    this.one = true;
+    this.two = false;
+    this.three = false;
+    this.four = false;
+    this.five = false;
+    this.showsubmit = true;
   }
-
+  two2(){
+    this.one = true;
+    this.two = true;
+    this.three = false;
+    this.four = false;
+    this.five = false;
+    this.showsubmit = true;
+  }
+  three3(){
+    this.one = true;
+    this.two = true;
+    this.three = true;
+    this.four = false;
+    this.five = false;
+    this.showsubmit = true;
+  }
+  four4(){
+    this.one = true;
+    this.two = true;
+    this.three = true;
+    this.four = true;
+    this.five = false;
+    this.showsubmit = true;
+  }
+  five5(){
+    this.one = true;
+    this.two = true;
+    this.three = true;
+    this.four = true;
+    this.five = true;
+    this.showsubmit = true;
+  }
+  submit(){
+    console.log("it is clicked");
+  }
 }

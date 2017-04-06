@@ -3,6 +3,9 @@ import { Component,ViewChild } from '@angular/core';
 import { NavController,Slides,Platform, AlertController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
+
 import { LangPage } from '../lang/lang';
 import { TutorialPage } from '../tutorial/tutorial';
 import { InfoPage } from '../info/info';
@@ -35,12 +38,13 @@ export class MainPage {
       public platform: Platform,
          public loadCtrl : LoadingController,
          public http : Http,
-          public alrtCrtl: AlertController
+          public alrtCrtl: AlertController,
+           private backgroundMode: BackgroundMode
            
 
          //  private nativePageTransitions: NativePageTransitions
       ) 
-  { 
+  {  this.backgroundMode.enable();
      this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
      {            
                    this.Summer = data.Summer;
