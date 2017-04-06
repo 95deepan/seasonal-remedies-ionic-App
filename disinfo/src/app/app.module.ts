@@ -8,6 +8,7 @@ import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { Network } from '@ionic-native/network';
 import { BackgroundMode } from '@ionic-native/background-mode';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
@@ -84,7 +85,8 @@ export const firebaseConfig = {
               LanguageService,
               Data,
               Network,
-              BackgroundMode
+              BackgroundMode,
+              InAppBrowser
               ]
 })
 export class AppModule {}
