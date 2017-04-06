@@ -33,12 +33,14 @@ export class TutorialPage {
         console.log('network was disconnected :-(');
         this.net = "lost" ;
        });
+       
        if(this.net == "lost"){
          let alert = this.alertCtrl.create({
           subTitle: 'Please check your internet connection'
         });
         alert.present();
        }
+       disconnectSubscription.closed;
      }
 
   ionViewDidLoad() {

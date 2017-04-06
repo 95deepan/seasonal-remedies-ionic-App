@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding> 
 
 <ion-card>  
   <ion-card-content padding>
@@ -21,17 +21,34 @@
   </ion-card-content>
 </ion-card>
 
-<ion-list>
+
+  <form [formGroup]="emailForm" (submit)="submit()" novalidate padding>
     <ion-item>
       <ion-label floating color="dark">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="email" ></ion-input>
+    
+      <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+            [class.invalid]="!emailForm.controls.email.valid && (emailChanged || submitAttempt)">
+      </ion-input>
+
     </ion-item>
+     <ion-item class="error-message" *ngIf="!emailForm.controls.email.valid  && (emailChanged || submitAttempt)">
+          <p>Please enter a valid email</p>
+     </ion-item>
     <ion-item>
       <ion-label floating color="dark">Message</ion-label>
-      <ion-input type="text" [(ngModel)]="message"></ion-input>
-    </ion-item>
-  </ion-list>
+     
+
+        <ion-input  formControlName="message" type="text">
+        </ion-input>
+
+    </ion-item> 
+   
+
   <div text-center>
-   <button ion-button (click)="submit();">Submit</button>
+    <button ion-button type="submit">
+      Submit    
+    </button>
   </div>
+  </form>
+  
 </ion-content>

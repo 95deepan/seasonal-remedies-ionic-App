@@ -18,6 +18,7 @@ import { LangPage } from '../pages/lang/lang';
 import { InfoPage } from '../pages/info/info';
 import { CurePage } from '../pages/cure/cure';
 import { PrecPage } from '../pages/prec/prec';
+import { AdminPage } from '../pages/admin/admin';
 
 import { Data } from '../providers/data';
 import { LanguageService } from '../providers/language.service';
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     LangPage,
     InfoPage,
     CurePage,
-    PrecPage
+    PrecPage,
+    AdminPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -73,7 +75,8 @@ export const firebaseConfig = {
     LangPage,
     InfoPage,
     CurePage,
-    PrecPage
+    PrecPage,
+    AdminPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage},

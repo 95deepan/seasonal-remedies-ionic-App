@@ -1,0 +1,30 @@
+<ion-header>
+   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Admin Page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content no-padding>
+
+<ion-card *ngFor="let list of messages | async" padding-left padding-right>
+  <div text-center>
+    <button (click)="delete(list.$key)" class="icon-pos">
+      <ion-icon name="trash" color="danger">
+      </ion-icon>
+    </button>
+  </div><br>
+  <ion-card-header>
+    From: &nbsp; <b>{{ list.email }}</b>
+  </ion-card-header>
+  <div padding-left>
+  <p>
+    {{list.message}}
+  </p>
+  </div>
+ </ion-card>
+
+</ion-content>

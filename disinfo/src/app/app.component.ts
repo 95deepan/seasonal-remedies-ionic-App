@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { AdminPage } from '../pages/admin/admin';
 import { MainPage } from '../pages/main/main';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
@@ -54,7 +55,8 @@ export class MyApp {
       { title: 'Manage Notifications', component: AboutPage,icon : 'md-notifications',color: "notification" },
       { title: 'Change Language', component: LangPage,icon : 'ios-globe-outline',color: "secondary" },
       { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "tell" },
-      { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "notification" }
+      { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "notification" },
+      { title: 'Admin', component: AdminPage,icon : 'md-cog',color: "home" }
     ];
 
   }
