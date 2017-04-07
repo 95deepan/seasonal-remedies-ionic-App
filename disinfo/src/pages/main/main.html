@@ -10,8 +10,9 @@
         </ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar> 
-  
+  </ion-toolbar>  
+  <!--    USE THIS TO DISPLAY FULL WORD AFTER CHANGING LANGUAGE
+       http://stackoverflow.com/questions/27677926/marquee-effect-using-css3 -->
   <ion-segment style="background-color:#F4A460; color:white;"
                [(ngModel)]="query" 
                (ionChange)="showdata()">
@@ -47,19 +48,19 @@
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
-         <button style="background-color: white;" (click)=info(sum.Sname);> 
-          <ion-icon style="position:relative; color: darkred;" name="ios-bulb">
-          </ion-icon><br><b style="text-align: center;">Info</b>
+         <button class="button-css" (click)=info(sum.Sname);> 
+          <ion-icon color="custom" name="ios-bulb">
+          </ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=cure(sum.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         <button class="button-css" (click)=cure(sum.Sname);> 
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
          </button>
       </ion-col> 
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=prec(sum.Sname);> 
-   <ion-icon style="color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         <button class="button-css" (click)=prec(sum.Sname);> 
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
          </button>
       </ion-col>
     </ion-row>
@@ -77,18 +78,18 @@
       </ion-card-title>
     <ion-row>
      <ion-col width-34>
-         <button style="background-color: white;" (click)=info(win.Sname);> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         <button class="button-css" (click)=info(win.Sname);> 
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=cure(win.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         <button class="button-css" (click)=cure(win.Sname);> 
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=prec(win.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         <button class="button-css" (click)=prec(win.Sname);> 
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
          </button>
       </ion-col>
     </ion-row>
@@ -107,18 +108,18 @@
       </ion-card-title>
     <ion-row> 
       <ion-col width-34>
-         <button style="background-color: white;" (click)=info(fal.Sname);> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         <button class="button-css" (click)=info(fal.Sname);> 
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=cure(fal.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         <button class="button-css" (click)=cure(fal.Sname);> 
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=prec(fal.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         <button class="button-css" (click)=prec(fal.Sname);> 
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
          </button>
       </ion-col>
     </ion-row>
@@ -137,18 +138,18 @@
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
-         <button style="background-color: white;" (click)=info(spr.Sname);> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         <button class="button-css" (click)=info(spr.Sname);> 
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=cure(spr.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         <button class="button-css" (click)=cure(spr.Sname);> 
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=prec(spr.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         <button class="button-css" (click)=prec(spr.Sname);> 
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
          </button>
       </ion-col>
     </ion-row>
@@ -166,18 +167,18 @@
       </ion-card-title>
     <ion-row>
       <ion-col width-34>
-         <button style="background-color: white;" (click)=info(rain.Sname);> 
-    <ion-icon style="position:relative; color: darkred;" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
+         <button class="button-css" (click)=info(rain.Sname);> 
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33> 
-         <button style="background-color: white;" (click)=cure(rain.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
+         <button class="button-css" (click)=cure(rain.Sname);> 
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
          </button>
       </ion-col>
       <ion-col width-33>
-         <button style="background-color: white;" (click)=prec(rain.Sname);> 
-   <ion-icon style="position:relative; color: darkred;" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
+         <button class="button-css" (click)=prec(rain.Sname);> 
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
          </button>
       </ion-col>
     </ion-row>

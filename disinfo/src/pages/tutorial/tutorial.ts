@@ -2,7 +2,6 @@ import { Component,ViewChild } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Geolocation } from 'ionic-native';
-import { Network } from '@ionic-native/network';
 
 import 'rxjs/add/operator/map';
 
@@ -26,22 +25,8 @@ export class TutorialPage {
     public navCtrl: NavController,
      public loadCtrl: LoadingController,
      public alertCtrl: AlertController,
-      public http: Http,
-       private network: Network
-     ) {
-       let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-        console.log('network was disconnected :-(');
-        this.net = "lost" ;
-       });
-       
-       if(this.net == "lost"){
-         let alert = this.alertCtrl.create({
-          subTitle: 'Please check your internet connection'
-        });
-        alert.present();
-       }
-       disconnectSubscription.closed;
-     }
+      public http: Http
+     ) {  }
 
   ionViewDidLoad() {
     this.initMap();
@@ -125,9 +110,9 @@ track(){
                buttons: [{
                 text:'Ok',
                 handler: data=>{
-           this.tracking();
-         }
-        }]
+                  this.tracking();
+                  }
+                }]
               });
               alert.present();
 
@@ -151,20 +136,29 @@ track(){
            this.address = data.results[0].formatted_address;  
           localStorage.setItem('userlat',this.newlat);
           localStorage.setItem('userlon',this.newlon);
+            if(this.newlat != undefined || this.newlon != undefined){
           let latlng2 = new google.maps.LatLng(this.newlat,this.newlon) ;
          let mapOptions = {
          center: latlng2,
-         zoom: 16,
+         zoom: 12,
          mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);   
     this.marker = new google.maps.Marker({
            map: this.map,
            title: 'My Location',
-           zoom: 16,
+           zoom: 12,
            position: latlng2
           }); 
+            }
+            else{
+              let alert = this.alertCtrl.create({
+                title: 'Oops!',
+                subTitle: 'Either your device <b>does not support</b> this service or location services is <b>Turned off!</b>'
+              })
+            }
       });
+    
     }
    )    //    If Location services is turned off
   .catch(

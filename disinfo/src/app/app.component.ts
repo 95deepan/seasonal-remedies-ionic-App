@@ -52,9 +52,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: MainPage, icon : 'home',color: "home" },
       { title: 'Set Location', component: TutorialPage,icon : 'ios-pin',color: "location" },
-      { title: 'Manage Notifications', component: AboutPage,icon : 'md-notifications',color: "notification" },
+      { title: 'Manage Notifications', component: AboutPage,icon : 'md-notifications',color: "tell" },
       { title: 'Change Language', component: LangPage,icon : 'ios-globe-outline',color: "secondary" },
-      { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "tell" },
+      { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "gmail" },
       { title: 'Rate Us', component: RatePage,icon : 'ios-star',color: "notification" },
       { title: 'Admin', component: AdminPage,icon : 'md-cog',color: "home" }
     ];

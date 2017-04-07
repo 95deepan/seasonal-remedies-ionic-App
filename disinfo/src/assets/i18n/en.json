@@ -1,5 +1,5 @@
 { 
-   "TITLE":"Seasonal Influenza",
+   "TITLE":"Seasonal Remedies",
    "SUMMER":"Summer",
    "WINTER":"Winter",
    "FALL":"Fall",
@@ -7,5 +7,14 @@
    "RAINY":"Rainy",
    "INFO":"Info",
    "CURE":"Cure",
-   "PREC":"Precaution"
+   "PREC":"Precaution",
+
+    "HOME":"Home",
+    "SET_LOCATION":"Set location",
+    "CHANGE_LANG":"Change Language",
+    "NOTIF_SET":"Manage Notifications",
+    "RATE":"Rate this App",
+    "TELL":"Tell Us"
+
+
 }

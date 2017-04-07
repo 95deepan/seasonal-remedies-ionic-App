@@ -64,7 +64,6 @@ export class RatePage {
   }
   submit(){
     console.log("it is clicked");
-    const browser = this.iab.create('https://ionic.io');
-
+    this.iab.create('https://ionic.io');
   }
 }
