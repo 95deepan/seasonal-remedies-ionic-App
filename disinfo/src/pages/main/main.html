@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title no-padding>{{ 'TITLE' | translate }}</ion-title> 
+    <ion-title no-padding>Seasonal Remedies</ion-title> 
     <ion-buttons end>
       <button ion-button icon-only (click)="lang();">
         <ion-icon name="md-more" color="light"> 
@@ -13,24 +13,25 @@
   </ion-toolbar>  
   <!--    USE THIS TO DISPLAY FULL WORD AFTER CHANGING LANGUAGE
        http://stackoverflow.com/questions/27677926/marquee-effect-using-css3 -->
+       
   <ion-segment style="background-color:#F4A460; color:white;"
                [(ngModel)]="query" 
                (ionChange)="showdata()">
                
       <ion-segment-button value="summer">
-        {{ 'SUMMER' | translate }}
+       Summer
       </ion-segment-button>
       <ion-segment-button value="winter">
-         {{ 'WINTER' | translate }}
+       Winter
       </ion-segment-button>
       <ion-segment-button value="fall">
-        {{ 'FALL' | translate }}
+        Fall
       </ion-segment-button>
       <ion-segment-button value="spring">
-         {{ 'SPRING' | translate }}
+         Spring
       </ion-segment-button>
       <ion-segment-button value="rainy">
-         {{ 'RAINY' | translate }}
+        Rainy
       </ion-segment-button>
     </ion-segment> 
     
@@ -41,7 +42,7 @@
   <ion-slide *ngFor="let sum of Summer" no-padding style="background-image: url(assets/img/slidebg.jpg);">
   <div style="padding-bottom: 95px;"></div>
    <ion-card  *ngFor="let disease of sum.Diseases">
-  <img class="imgcss" src="assets/img/summer2.jpg"/>
+  <img class="imgcss" src="assets/img/summer2.jpg" (click)=info(sum.Sname)/>
   <ion-card-content>
     <ion-card-title text-center>
       {{disease.Description.name}}
@@ -50,17 +51,17 @@
       <ion-col width-34>
          <button class="button-css" (click)=info(sum.Sname);> 
           <ion-icon color="custom" name="ios-bulb">
-          </ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
+          </ion-icon><br><b style="text-align: center;">Info</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=cure(sum.Sname);> 
-   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
       </ion-col> 
       <ion-col width-33> 
          <button class="button-css" (click)=prec(sum.Sname);> 
-   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>
@@ -71,7 +72,7 @@
 <ion-slide *ngFor="let win of Winter" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
  <ion-card *ngFor="let disease of win.Diseases">
-  <img class="imgcss" src="assets/img/cold.jpg"/>
+  <img class="imgcss" src="assets/img/cold.jpg" (click)=info(win.Sname);/>
   <ion-card-content>
     <ion-card-title text-center>
       {{disease.Description.name}}
@@ -79,17 +80,17 @@
     <ion-row>
      <ion-col width-34>
          <button class="button-css" (click)=info(win.Sname);> 
-    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=cure(win.Sname);> 
-   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=prec(win.Sname);> 
-   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>
@@ -101,7 +102,7 @@
 <ion-slide *ngFor="let fal of Fall" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of fal.Diseases">
-  <img class="imgcss" src="assets/img/fall2.jpg"/>
+  <img class="imgcss" src="assets/img/fall2.jpg" (click)=info(fal.Sname);/>
   <ion-card-content>
     <ion-card-title text-center>
        {{disease.Description.name}}
@@ -109,17 +110,17 @@
     <ion-row> 
       <ion-col width-34>
          <button class="button-css" (click)=info(fal.Sname);> 
-    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=cure(fal.Sname);> 
-   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=prec(fal.Sname);> 
-   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>
@@ -131,7 +132,7 @@
 <ion-slide *ngFor="let spr of Spring" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of spr.Diseases">
-  <img class="imgcss" src="assets/img/spring2.jpg"/>
+  <img class="imgcss" src="assets/img/spring2.jpg" (click)=info(spr.Sname);/>
   <ion-card-content>
     <ion-card-title text-center>
          {{disease.Description.name}}
@@ -139,17 +140,17 @@
     <ion-row>
       <ion-col width-34>
          <button class="button-css" (click)=info(spr.Sname);> 
-    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=cure(spr.Sname);> 
-   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=prec(spr.Sname);> 
-   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>
@@ -160,7 +161,7 @@
   <ion-slide *ngFor="let rain of Rainy" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of rain.Diseases">
-  <img class="imgcss" src="assets/img/rainy2.jpg"/>
+  <img class="imgcss" src="assets/img/rainy2.jpg" (click)=info(rain.Sname);/>
   <ion-card-content>
     <ion-card-title text-center>
          {{disease.Description.name}}
@@ -168,17 +169,17 @@
     <ion-row>
       <ion-col width-34>
          <button class="button-css" (click)=info(rain.Sname);> 
-    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">{{ 'INFO' | translate }}</b>
+    <ion-icon color="custom" name="ios-bulb"></ion-icon><br><b style="text-align: center;">Info</b>
          </button>
       </ion-col>
       <ion-col width-33> 
          <button class="button-css" (click)=cure(rain.Sname);> 
-   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>{{ 'CURE' | translate }}</b>
+   <ion-icon color="custom" name="ios-flower" text-center></ion-icon><br><b>Cure</b>
          </button>
       </ion-col>
       <ion-col width-33>
          <button class="button-css" (click)=prec(rain.Sname);> 
-   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>{{ 'PREC' | translate }}</b>
+   <ion-icon color="custom" name="ios-alert" text-center></ion-icon><br><b>Precaution</b>
          </button>
       </ion-col>
     </ion-row>

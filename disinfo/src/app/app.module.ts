@@ -2,9 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MyApp } from './app.component';
-import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
-//import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-import { Http } from '@angular/http';
+//import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions'; 
+//import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { Network } from '@ionic-native/network';
 import { BackgroundMode } from '@ionic-native/background-mode';
@@ -23,14 +23,14 @@ import { PrecPage } from '../pages/prec/prec';
 import { AdminPage } from '../pages/admin/admin';
 
 import { Data } from '../providers/data';
-import { LanguageService } from '../providers/language.service';
+// import { LanguageService } from '../providers/language.service';
 
 export function provideStorage() {
    return new Storage();
  }
-export function createTranslateLoader(http: Http) {
+/* export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, './assets/i18n', '.json');
-}
+}  */
 
 export const firebaseConfig = {
     apiKey: "AIzaSyC3k-OBD2X4tihUN-lvOOuySNNDGZ41QF8",
@@ -59,11 +59,11 @@ export const firebaseConfig = {
   imports: [
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    TranslateModule.forRoot({
+   /* TranslateModule.forRoot({
     provide: TranslateLoader,
     useFactory: (createTranslateLoader),
     deps: [Http],
-  })
+  }) */
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,11 +82,12 @@ export const firebaseConfig = {
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage},
-              LanguageService,
+            //  LanguageService,
               Data,
               Network,
               BackgroundMode,
-              InAppBrowser
+              InAppBrowser,
+              NativePageTransitions
               ]
 })
 export class AppModule {}

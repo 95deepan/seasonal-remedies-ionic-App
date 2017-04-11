@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
 
-import { LangPage } from '../lang/lang';
+// import { LangPage } from '../lang/lang';
 import { TutorialPage } from '../tutorial/tutorial';
 import { InfoPage } from '../info/info';
 import { CurePage } from '../cure/cure';
@@ -77,6 +77,7 @@ export class MainPage {
    }
    
     showreport(){
+      this.backgroundMode.enable();
       let loading = this.loadCtrl.create({
       content: 'Fetching Current Weather condition...',
       });
@@ -85,6 +86,7 @@ export class MainPage {
       this.weather = "http://api.openweathermap.org/data/2.5/weather?lat="+this.newlat+"&lon="+this.newlon+"&APPID=352e6fd67fd7ed5c99351254c6d2dd5b";
       this.http.get(this.weather).map(res => res.json()).subscribe(data => {
               this.setWeather = data.weather[0].description;
+               localStorage.setItem('weather',this.setWeather);
               this.seasonfetch();
               let alert = this.alrtCrtl.create({
                title: 'Current Weather',
@@ -97,7 +99,7 @@ export class MainPage {
   }, 800);
   }
   lang(){
-    this.navCtrl.push(LangPage);
+    this.navCtrl.push(TutorialPage);
   }
   info(id){
       this.navCtrl.push(InfoPage,{name: id},{ animate: true, direction: 'forward' });

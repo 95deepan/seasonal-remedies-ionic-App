@@ -1,18 +1,19 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar> 
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Rate Us</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <h3>Please Rate us with 5 stars and also share your feedback.</h3> &nbsp;&nbsp;
+<ion-content padding><div text-center>
+  <h3>Please Rate this App with 5 stars and submit a review</h3> &nbsp;&nbsp;</div>
+  <div style="margin-left: 78px; ">
   <button *ngIf="one == false" ion-button (click)="one1();"><ion-icon name="ios-star-outline"></ion-icon></button>
   <button *ngIf="one == true" ion-button (click)="one1()"><ion-icon name="ios-star" color="appTheme"></ion-icon></button>
 
@@ -28,7 +29,8 @@
   <button *ngIf="five == false" ion-button (click)="five5();"><ion-icon name="ios-star-outline"></ion-icon></button>
   <button *ngIf="five == true" ion-button (click)="five5();"><ion-icon name="ios-star" color="appTheme"></ion-icon></button>
   <br><br>
+  </div>
   <div *ngIf="showsubmit==true" text-center>
-     <ion-icon (click)="submit()" name="appstore" color="location"></ion-icon>
+     <ion-icon (click)="submit()" name="appstore" color="location"></ion-icon>&nbsp;Submit
   </div>
 </ion-content>

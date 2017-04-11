@@ -23,6 +23,11 @@
                Customise
             </button>
          </ion-col>
+         <ion-col width-50>
+            <button ion-button color="appTheme" (click)="toggle2();">
+               All day
+            </button>
+         </ion-col>
         </ion-row>
         <ion-item *ngFor="let day of days">
             <ion-label item-left>{{day.title}}</ion-label>

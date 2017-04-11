@@ -13,15 +13,20 @@
 
 <ion-content padding> 
 
-<ion-card>  
+<ion-card *ngIf="show == true">  
   <ion-card-content padding>
     <div text-center>
      <b> Message Preview </b>
     </div> <br> {{message}}
-  </ion-card-content>
+  </ion-card-content> 
 </ion-card>
-
-
+<div padding>
+  <ion-item>
+      <ion-label floating color="dark">Message</ion-label>
+        <ion-input  [(ngModel)]="message" type="text">
+        </ion-input>
+    </ion-item> 
+</div>
   <form [formGroup]="emailForm" (submit)="submit()" novalidate padding>
     <ion-item>
       <ion-label floating color="dark">Email</ion-label>
@@ -34,21 +39,13 @@
      <ion-item class="error-message" *ngIf="!emailForm.controls.email.valid  && (emailChanged || submitAttempt)">
           <p>Please enter a valid email</p>
      </ion-item>
-    <ion-item>
-      <ion-label floating color="dark">Message</ion-label>
-     
-
-        <ion-input  formControlName="message" type="text">
-        </ion-input>
-
-    </ion-item> 
-   
-
+    
   <div text-center>
     <button ion-button type="submit">
       Submit    
     </button>
   </div>
   </form>
+
   
 </ion-content>
