@@ -21,4 +21,16 @@ page-home {
      margin-bottom: 40px !important;
      background: lightgrey;
    }
+      .trans{
+     position: relative;
+	
+    -webkit-animation: mymove 2s;  
+    -webkit-animation-iteration-count: 2; 
+    animation: mymove 2s;
+    animation-iteration-count: 2;
+   }
+   @keyframes mymove {
+    from {left: 30px;}
+    to {left: 0px;}
+}
 }

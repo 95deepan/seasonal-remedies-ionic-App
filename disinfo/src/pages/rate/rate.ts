@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { InAppBrowser } from 'ionic-native';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-rate',
@@ -64,6 +64,7 @@ export class RatePage {
   }
   submit(){
     console.log("it is clicked");
-    new InAppBrowser('https://ionic.io');
+    this.iab.create('https://ionic.io');
+   // new InAppBrowser('https://ionic.io','_blank'); 
   }
 }

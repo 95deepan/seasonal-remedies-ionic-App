@@ -22,14 +22,14 @@
 </ion-card>
 <div padding>
   <ion-item>
-      <ion-label floating color="dark">Message</ion-label>
+      <ion-label floating color="dark">Message<span color="danger">*</span></ion-label>
         <ion-input  [(ngModel)]="message" type="text">
         </ion-input>
     </ion-item> 
-</div>
-  <form [formGroup]="emailForm" (submit)="submit()" novalidate padding>
+
+  <form [formGroup]="emailForm" (submit)="submit()" novalidate>
     <ion-item>
-      <ion-label floating color="dark">Email</ion-label>
+      <ion-label floating color="dark">Email<span color="danger">*</span></ion-label>
     
       <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
             [class.invalid]="!emailForm.controls.email.valid && (emailChanged || submitAttempt)">
@@ -39,13 +39,15 @@
      <ion-item class="error-message" *ngIf="!emailForm.controls.email.valid  && (emailChanged || submitAttempt)">
           <p>Please enter a valid email</p>
      </ion-item>
-    
+    <br><br>
   <div text-center>
     <button ion-button type="submit">
       Submit    
     </button>
   </div>
   </form>
-
-  
+</div>
+<br><br><br><div padding>
+<p><b>Note:</b> Items with <span color="danger">*</span> are compulsory</p>
+  </div>
 </ion-content>

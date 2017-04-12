@@ -11,8 +11,8 @@ export class AboutPage {
     notifyTime: any = "08:00" ;
     notifications: any[] = [];
     days: any[];
-    chosenHours: number;
-    chosenMinutes: number;
+   // chosenHours: number;
+  //  chosenMinutes: number;
     disabled:boolean = false;
     weather:any;
    constructor(
@@ -23,8 +23,8 @@ export class AboutPage {
      //   this.notifyTime = moment(new Date()).format();
         this.weather = localStorage.getItem('weather');
         console.log("Curent weather is ",this.weather);
-        this.chosenHours = new Date().getHours();
-        this.chosenMinutes = new Date().getMinutes();
+      //  this.chosenHours = new Date().getHours();
+     //   this.chosenMinutes = new Date().getMinutes();
  
         this.days = [
             {title: 'Monday', dayCode: 1, checked: true},
@@ -68,8 +68,8 @@ export class AboutPage {
         ];
     }
     timeChange(time){
-       this.chosenHours = time.hour.value;
-      this.chosenMinutes = time.minute.value;
+     //  this.chosenHours = time.hour.value;
+    //  this.chosenMinutes = time.minute.value;
     }
  
     addNotifications(){
@@ -88,8 +88,8 @@ export class AboutPage {
             }
  
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
-            firstNotificationTime.setHours(this.chosenHours);
-            firstNotificationTime.setMinutes(this.chosenMinutes);
+           // firstNotificationTime.setHours(this.chosenHours);
+         //   firstNotificationTime.setMinutes(this.chosenMinutes);
                   //------------------- FOR SUMMER--------------------
         
          if(this.weather == 'clear sky' || this.weather == 'few clouds' || this.weather == 'haze'){
