@@ -1,13 +1,43 @@
-
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar *ngIf="showsearch == false">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Set Location</ion-title>
-  </ion-navbar>
-
+    <ion-buttons end>
+      <button ion-button icon-only (click)="opensearchbar();">
+        <ion-icon name="md-search" color="light"></ion-icon>
+      </button>
+    </ion-buttons> 
+  </ion-toolbar>
+    <ion-toolbar color="appTheme" no-border-top *ngIf="showsearch == true">
+     <ion-buttons left>
+      <button ion-button icon-only (click)="closesearchbar();">
+        <ion-icon name="md-arrow-back" color="light"></ion-icon>
+      </button>
+    </ion-buttons> 
+     <ion-searchbar   color="light"
+                      placeholder="Your Location"
+                      [(ngModel)]="query"
+                      (ionInput)="search()"
+                      (search)="onSearch($event)"
+                      class="trans">
+     </ion-searchbar> 
+    </ion-toolbar>
+    <div *ngIf="showsearch == true">
+      <div text-center style="background-color: white" padding *ngIf="showlist == false">
+        Sorry Location not found&nbsp;&nbsp;
+        <ion-icon name="md-search" color="location"></ion-icon>
+      </div>
+    
+    <div *ngIf="showlist == true">
+      <button ion-item (click)="setloc();">
+       <ion-icon name="pin" color="location"></ion-icon> &nbsp;&nbsp; {{mylocation}}
+       <ion-icon item-right name="ios-arrow-round-forward" color="location"></ion-icon>
+      </button>
+    </div>
+    </div>
 </ion-header> 
 
 

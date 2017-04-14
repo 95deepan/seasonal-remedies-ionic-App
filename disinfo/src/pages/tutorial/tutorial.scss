@@ -2,5 +2,28 @@ page-tutorial {
     .alert-md .alert-button{
         color: #F4A460 !important;
     }
-   
+    .searchbar-md .searchbar-input{
+        border-radius: 5px;
+        padding-left: 8px;
+    }
+     .searchbar-md .searchbar-md-cancel{
+         outline-color: white;
+     }
+     .searchbar-md .searchbar-search-icon{
+         color: white;
+         background-color: white;
+         visibility: hidden;
+     }
+          .trans{
+     position: relative;
+	
+    -webkit-animation: mymove 0.2s;  
+    -webkit-animation-iteration-count: 1; 
+    animation: mymove 0.2s;
+    animation-iteration-count: 1;
+   }
+   @keyframes mymove {
+    from {width: 0%;}
+    to {width: 100%;}
+}
 }

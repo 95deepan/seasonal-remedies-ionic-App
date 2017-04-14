@@ -1,4 +1,4 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild,Renderer } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Geolocation } from 'ionic-native';
@@ -20,23 +20,86 @@ export class TutorialPage {
   newlat: any;
   newlon: any;
   weather = "";
-  net: string ;
+  //For searchbar
+  showsearch:boolean = false;
+  showlist:boolean = false;
+  query:string = "";
+  address2:any[];
+  mylocation:string;
+
   constructor(
     public navCtrl: NavController,
      public loadCtrl: LoadingController,
      public alertCtrl: AlertController,
-      public http: Http
+      public http: Http,
+       public renderer: Renderer
      ) {  }
-
+  
   ionViewDidLoad() {
     this.initMap();
   }
+  closesearchbar(){
+    this.showsearch = false;
+  }
+  opensearchbar(){
+   this.showsearch = true;
+   console.log("It is clicked");
+  }
+  setloc(){
+    let latlng = new google.maps.LatLng(this.newlat,this.newlon);;
+    let mapOptions = {
+      center: latlng,
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.marker = new google.maps.Marker({
+      map: this.map,
+      title: 'My Location',
+      position: latlng
+    });
+    this.showsearch = false;
+//    this.showlist = false;
+  }
+  search(){
+   this.showlist = true;
+   // if result found showlist == true
+   // not found showlist == false
+    var geocoder = new google.maps.Geocoder();
+    let lan, lat;
+    geocoder.geocode({ 'address': this.query }, (results, status) => {
 
+      if (status == google.maps.GeocoderStatus.OK) {
+
+        lat = results[0].geometry.location.lat();
+
+        lan = results[0].geometry.location.lng();
+        this.newlat = lat;
+        this.newlon = lan;
+        localStorage.setItem('userlat',lat);
+        localStorage.setItem('userlon',lan);
+        console.log("lat,lan", lat, lan);
+        this.revLoc = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lan + "&sensor=true";
+        this.http.get(this.revLoc).map(res => res.json()).subscribe(data => {
+        //  for(var i=0;i<4;i++){
+          this.address = data.results[0].formatted_address;
+         // }
+          this.mylocation = this.address;
+          console.log("Address is ",this.address);
+        });
+
+      }
+
+    });
+  }
+  onSearch(event) {
+    this.renderer.invokeElementMethod(event.target, 'blur');
+  }
   initMap(){
      let latlng = new google.maps.LatLng(13.0827, 80.2707);
     let mapOptions = {
       center: latlng,
-      zoom: 7,
+      zoom: 5,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
