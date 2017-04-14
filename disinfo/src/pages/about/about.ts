@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, Platform,AlertController } from 'ionic-angular';
 import { LocalNotifications } from 'ionic-native';
 // import * as moment from 'moment';
+// MY ALGORITHM
+// set notificatio for each season and set an id for each notification , then
+// trigger and cancel specific Notifications according to usr selection
+// by default set all notifi active for a particular season.
 
 @Component({
   selector: 'page-about',
@@ -11,8 +15,8 @@ export class AboutPage {
     notifyTime: any = "08:00" ;
     notifications: any[] = [];
     days: any[];
-   // chosenHours: number;
-  //  chosenMinutes: number;
+    chosenHours: number;
+    chosenMinutes: number;
     disabled:boolean = false;
     weather:any;
    constructor(
@@ -35,11 +39,14 @@ export class AboutPage {
             {title: 'Saturday', dayCode: 6, checked: true},
             {title: 'Sunday', dayCode: 0, checked: true}
         ];
-        if(this.disabled == false){
-        this.addNotifications();}
-        else{
-            return;
-        }
+       // if(this.disabled == false){
+     //   this.addNotifications();}
+     //   else{
+     //       return;
+    //    }
+    let currentDate = new Date();
+    let currentDay = currentDate.getDay(); 
+    console.log("Today is",currentDay);
     }
 
  ionViewDidLoad(){
@@ -68,12 +75,13 @@ export class AboutPage {
         ];
     }
     timeChange(time){
-     //  this.chosenHours = time.hour.value;
-    //  this.chosenMinutes = time.minute.value;
+       this.chosenHours = time.hour.value;
+      this.chosenMinutes = time.minute.value;
+      console.log("Current time is",this.chosenHours,"hrs",this.chosenMinutes,"mins")
     }
  
     addNotifications(){
-       let currentDate = new Date();
+    let currentDate = new Date();
     let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
  
     for(let day of this.days){
@@ -336,7 +344,7 @@ export class AboutPage {
         }
  
     }
- 
+    
    // console.log("Notifications to be scheduled: ", this.notifications);
  
     if(this.platform.is('cordova')){

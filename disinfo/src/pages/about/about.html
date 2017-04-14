@@ -6,26 +6,30 @@
     <ion-title>
       Set Notification Time
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNotifications()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
  
 <ion-content padding>
  
     <ion-list no-lines>
- 
+  
         <ion-item>
           <ion-label>Notify me at: </ion-label>
           <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
         </ion-item>
         <ion-row>
          <ion-col width-50>
-            <button ion-button color="appTheme" (click)="toggle();">
+            <button full ion-button color="appTheme" (click)="toggle();">
                Customise
             </button>
          </ion-col>
          <ion-col width-50>
-            <button ion-button color="appTheme" (click)="toggle2();">
-               All day
+            <button full ion-button color="appTheme" (click)="toggle2();">
+               Notify Daily
             </button>
          </ion-col>
         </ion-row>
@@ -35,14 +39,9 @@
         </ion-item>
  
     </ion-list>
- <ion-row padding>
-    <ion-col width-50>
-      <button (click)="cancelAll()" ion-button color="danger" full>Disable</button>
-    </ion-col>
-    <ion-col width-50>
-      <button (click)="addNotifications()" ion-button color="appTheme" full>Set time</button>
-    </ion-col>
-  </ion-row>
+   <div text-center>
+      <button (click)="cancelAll()" ion-button color="danger">Disable</button>
+   </div>
 </ion-content>
  
   

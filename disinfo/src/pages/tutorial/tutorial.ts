@@ -155,7 +155,8 @@ track(){
               let alert = this.alertCtrl.create({
                 title: 'Oops!',
                 subTitle: 'Either your device <b>does not support</b> this service or location services is <b>Turned off!</b>'
-              })
+              });
+              alert.present();
             }
       });
     

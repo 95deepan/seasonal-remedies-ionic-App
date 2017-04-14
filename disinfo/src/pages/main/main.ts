@@ -44,7 +44,7 @@ export class MainPage {
 
          //  private nativePageTransitions: NativePageTransitions
       ) 
-  {  this.backgroundMode.enable();
+  {//  this.backgroundMode.enable();
      this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
      {            
                    this.Summer = data.Summer;
