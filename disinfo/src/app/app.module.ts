@@ -7,7 +7,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 //import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 //import { Network } from '@ionic-native/network';
-import { BackgroundMode } from '@ionic-native/background-mode';
+//import { BackgroundMode } from '@ionic-native/background-mode';
 import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 
 import { HomePage } from '../pages/home/home';
@@ -85,7 +85,7 @@ export const firebaseConfig = {
             //  LanguageService,
               Data,
            //   Network, 
-              BackgroundMode,
+          //    BackgroundMode,
               InAppBrowser,
               NativePageTransitions
               ]

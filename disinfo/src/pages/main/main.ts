@@ -1,9 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-import { NavController,Slides,Platform, AlertController, LoadingController } from 'ionic-angular';
+import { NavController,Slides,Platform, AlertController, LoadingController,ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
-import { BackgroundMode } from '@ionic-native/background-mode';
+//import { BackgroundMode } from '@ionic-native/background-mode';
 
 
 // import { LangPage } from '../lang/lang';
@@ -32,6 +32,7 @@ export class MainPage {
   newlat: any;
   newlon: any;
   weather = "";
+  showeather:string;
   constructor(
     public navCtrl: NavController,
      public storage: Storage,
@@ -39,7 +40,8 @@ export class MainPage {
          public loadCtrl : LoadingController,
          public http : Http,
           public alrtCrtl: AlertController,
-           private backgroundMode: BackgroundMode
+           public toast:ToastController
+         //  private backgroundMode: BackgroundMode
            
 
          //  private nativePageTransitions: NativePageTransitions
@@ -77,7 +79,7 @@ export class MainPage {
    }
    
     showreport(){
-      this.backgroundMode.enable();
+    //  this.backgroundMode.enable();
       let loading = this.loadCtrl.create({
       content: 'Fetching Current Weather condition...',
       });
@@ -88,15 +90,26 @@ export class MainPage {
               this.setWeather = data.weather[0].description;
                localStorage.setItem('weather',this.setWeather);
               this.seasonfetch();
-              let alert = this.alrtCrtl.create({
-               title: 'Current Weather',
-               subTitle: data.weather[0].description,
-               buttons: ['OK']
-               });
-               alert.present();
+              this.showeather = "Since the weather condition is "+ data.weather[0].description +"."; 
+              
+               let toast = this.toast.create({
+                message: 'Precautions shall be taken for the following diseases',
+                duration: 3500,
+                position: 'top',
+                showCloseButton: true
+              });
+                toast.onDidDismiss(() => {
+                 let toast = this.toast.create({
+                message: this.showeather,
+                duration: 3500,
+                position: 'top'
+              });
+               toast.present();
              });
+              toast.present();
+            });
          loading.dismiss();
-  }, 800);
+  }, 1000);
   }
   lang(){
     this.navCtrl.push(TutorialPage);
@@ -198,6 +211,11 @@ export class MainPage {
          this.query = 'rainy';
          this.slides.slideTo(4,0);
          break;
+         case 'overcast clouds':
+         this.query = 'rainy';
+         this.slides.slideTo(4,0);
+         break;
+
          default:
          this.query = 'summer';
           }   

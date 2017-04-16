@@ -11,11 +11,15 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
  @ViewChild(Slides) slides: Slides;
+ anim:boolean = false;
+
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public storage:Storage
-    ) {}
+    ) {
+     
+    }
      	
     openmain() {
       this.navCtrl.push(MainPage).then(() => {
@@ -32,6 +36,7 @@ export class HomePage {
   }
   go(){
     this.slides.slideTo(1,0);
+    this.anim = true;
   }
   goto(){
     this.slides.slideTo(2,0);

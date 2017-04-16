@@ -17,9 +17,9 @@ page-tutorial {
           .trans{
      position: relative;
 	
-    -webkit-animation: mymove 0.2s;  
+    -webkit-animation: mymove 0.4s;  
     -webkit-animation-iteration-count: 1; 
-    animation: mymove 0.2s;
+    animation: mymove 0.4s;
     animation-iteration-count: 1;
    }
    @keyframes mymove {

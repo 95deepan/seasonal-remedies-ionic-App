@@ -3,11 +3,23 @@ page-home {
     word-spacing: 2px;
     letter-spacing: 1px;
   }
+   .newbutton{
+     position: absolute;
+     bottom: 7em; 
+    
+
+   }
    .button-md{
-     background-color: #da9357;
+     background-color: #F4A460;
    }
     .button-ios{
-     background-color: #da9357;
+     background-color: #F4A460;
+   }
+   .fab-md{
+     background-color: transparent;
+   }
+   .fab-ios{
+     background-color: transparent;
    }
    .font{
      font-weight: 20px;
@@ -22,15 +34,17 @@ page-home {
      background: lightgrey;
    }
       .trans{
-     position: relative;
+     position: absolute;
+     right: 0px;
+
 	
     -webkit-animation: mymove 2s;  
-    -webkit-animation-iteration-count: 2; 
+    -webkit-animation-iteration-count: infinite; 
     animation: mymove 2s;
-    animation-iteration-count: 2;
-   }
-   @keyframes mymove {
-    from {left: 30px;}
-    to {left: 0px;}
-}
+    animation-iteration-count: infinite;
+
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+   }  
+ 
 }

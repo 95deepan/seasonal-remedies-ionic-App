@@ -59,12 +59,9 @@ export class TutorialPage {
       position: latlng
     });
     this.showsearch = false;
-//    this.showlist = false;
   }
   search(){
    this.showlist = true;
-   // if result found showlist == true
-   // not found showlist == false
     var geocoder = new google.maps.Geocoder();
     let lan, lat;
     geocoder.geocode({ 'address': this.query }, (results, status) => {
@@ -78,22 +75,22 @@ export class TutorialPage {
         this.newlon = lan;
         localStorage.setItem('userlat',lat);
         localStorage.setItem('userlon',lan);
-        console.log("lat,lan", lat, lan);
         this.revLoc = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lan + "&sensor=true";
         this.http.get(this.revLoc).map(res => res.json()).subscribe(data => {
-        //  for(var i=0;i<4;i++){
           this.address = data.results[0].formatted_address;
-         // }
           this.mylocation = this.address;
-          console.log("Address is ",this.address);
         });
 
+      }
+      else{
+        this.showlist = false;
       }
 
     });
   }
   onSearch(event) {
     this.renderer.invokeElementMethod(event.target, 'blur');
+    this.search();
   }
   initMap(){
      let latlng = new google.maps.LatLng(13.0827, 80.2707);

@@ -26,12 +26,12 @@
      </ion-searchbar> 
     </ion-toolbar>
     <div *ngIf="showsearch == true">
-      <div text-center style="background-color: white" padding *ngIf="showlist == false">
+      <div text-center style="background-color: white;margin-left: 5px; margin-right: 5px;" padding *ngIf="showlist == false">
         Sorry Location not found&nbsp;&nbsp;
         <ion-icon name="md-search" color="location"></ion-icon>
       </div>
     
-    <div *ngIf="showlist == true">
+    <div *ngIf="showlist == true" style="margin-left: 5px; margin-right: 5px;">
       <button ion-item (click)="setloc();">
        <ion-icon name="pin" color="location"></ion-icon> &nbsp;&nbsp; {{mylocation}}
        <ion-icon item-right name="ios-arrow-round-forward" color="location"></ion-icon>
