@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AdMob } from 'ionic-native';
 
 @Component({
   selector: 'page-rate',
@@ -20,7 +21,17 @@ export class RatePage {
     public navCtrl: NavController,
      private iab: InAppBrowser
      ) {}
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    let options = {
+              adId : 'ca-app-pub-3940256099942544/6300978111',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
+  }
 
   one1(){
     this.one = true;

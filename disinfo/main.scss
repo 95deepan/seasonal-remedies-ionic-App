@@ -1,0 +1,61 @@
+page-main {
+  
+  .button-css{
+    background-color: white !important;
+  }
+  .card-md{
+    border-radius: 5px;
+  }
+  .card-ios{
+    border-radius: 5px;
+  }
+  .toolbar-title-md{
+    padding-left: 1px !important;
+  }
+  .toolbar-title-ios{
+    text-align: left;
+    padding-left: -20px;
+  } 
+  .toolbar-ios ion-title {
+    left: -35px;
+  }
+  .swiper-slide {
+    overflow-y: scroll;
+    display: block;
+}
+  .segment-md .segment-button{
+    color: white;
+  }
+  .segment-md .segment-button.segment-activated{
+    border-bottom-color: white;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;
+    border-bottom-width: 3px;
+  }
+  .segment-ios .segment-button{
+    color: white;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;
+    border-bottom-color: #F4A460;
+    border-top-color: #F4A460;
+  }
+  .segment-ios .segment-button.segment-activated{
+   border-bottom-color: white;
+    border-left-color: #F4A460;
+    border-right-color: #F4A460;  
+    background-color: #F4A460;
+    border-bottom-width: 3px;
+  }
+  .button-md{
+     background-color: #edd6bb;
+   }
+    .button-ios{
+     background-color: #edd6bb;
+   }
+  .imgcss{
+      margin-top: 0px;
+      width: 100%;
+      height: auto;   
+   }
+}
+

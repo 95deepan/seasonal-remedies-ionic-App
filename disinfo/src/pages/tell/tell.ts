@@ -3,6 +3,7 @@ import { NavController, NavParams,AlertController,LoadingController } from 'ioni
 import { AngularFire,FirebaseListObservable } from 'angularfire2';
 import { EmailValidator } from '../../providers/email';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AdMob } from 'ionic-native';
 
 @Component({
   selector: 'page-tell',
@@ -32,6 +33,15 @@ export class TellPage {
             else{
               this.show = true;
             }
+            let options = {
+              adId : 'ca-app-pub-3940256099942544/6300978111',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
           }
      submit(){
     if (!this.emailForm.valid) {

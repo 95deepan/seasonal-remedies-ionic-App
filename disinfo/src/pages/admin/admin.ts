@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,LoadingController,AlertController } from 'ionic-angular';
 import { AngularFire,FirebaseListObservable } from 'angularfire2';
+import { AdMob } from 'ionic-native';
 
 @Component({
   selector: 'page-admin',
@@ -14,7 +15,17 @@ export class AdminPage {
       public af: AngularFire,
        public loadctrl: LoadingController,
         public alertCtrl: AlertController
-      ) {}
+      ) {
+           let options = {
+              adId : 'ca-app-pub-3940256099942544/6300978111',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
+      }
   
   ionViewDidLoad() {
      let loading = this.loadctrl.create({

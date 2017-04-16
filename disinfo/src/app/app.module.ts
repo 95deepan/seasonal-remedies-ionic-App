@@ -2,14 +2,21 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MyApp } from './app.component';
-//import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
-import { NativePageTransitions } from '@ionic-native/native-page-transitions'; 
+
+
+
+
 //import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
+//import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
+
+//NATIVE COMPONENTS
+import { NativePageTransitions } from '@ionic-native/native-page-transitions'; 
+import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 //import { Network } from '@ionic-native/network';
 //import { BackgroundMode } from '@ionic-native/background-mode';
-import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 
+//PAGES
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
 import { AboutPage } from '../pages/about/about';
@@ -22,6 +29,7 @@ import { CurePage } from '../pages/cure/cure';
 import { PrecPage } from '../pages/prec/prec';
 import { AdminPage } from '../pages/admin/admin';
 
+//PROVIDERS
 import { Data } from '../providers/data';
 // import { LanguageService } from '../providers/language.service';
 

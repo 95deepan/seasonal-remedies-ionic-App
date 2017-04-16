@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform,AlertController } from 'ionic-angular';
-import { LocalNotifications } from 'ionic-native';
+import { LocalNotifications,AdMob } from 'ionic-native';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 // import * as moment from 'moment';
 // MY ALGORITHM
 // set notificatio for each season and set an id for each notification , then
@@ -22,7 +23,18 @@ export class AboutPage {
    constructor(
      public navCtrl: NavController,
       public platform: Platform,
-       public alertCtrl: AlertController) {
+       public alertCtrl: AlertController,
+        public nativePageTransitions: NativePageTransitions
+        ) {
+           let options = {
+              adId : 'ca-app-pub-3940256099942544/6300978111',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
  
      //   this.notifyTime = moment(new Date()).format();
         this.weather = localStorage.getItem('weather');
@@ -48,10 +60,30 @@ export class AboutPage {
     let currentDay = currentDate.getDay(); 
     console.log("Today is",currentDay);
     }
+   ionViewWillLeave() {
 
- ionViewDidLoad(){
- 
-    }
+ let options: NativeTransitionOptions = {
+    direction: 'right',
+    duration: 800,
+    slowdownfactor: 3,
+    slidePixels: 20,
+    iosdelay: 500,
+    androiddelay: 500,
+    fixedPixelsTop: 0,
+    fixedPixelsBottom: 60
+   };
+ this.nativePageTransitions.slide(options)
+   .then(()=>{
+      // alert("Animated");
+       console.log("Succesfully animated");
+    }   
+   )
+   .catch(()=>{
+   //  alert("not animated");
+     console.log("Not animates");
+   });
+
+}
     toggle(){
         this.days = [
             {title: 'Monday', dayCode: 1, checked: false},

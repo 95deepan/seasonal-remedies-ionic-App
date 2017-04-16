@@ -1,11 +1,11 @@
 import { Component,ViewChild } from '@angular/core';
-//import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { NavController,Slides,Platform, AlertController, LoadingController,ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 //import { BackgroundMode } from '@ionic-native/background-mode';
 
-
+import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
 import { TutorialPage } from '../tutorial/tutorial';
 import { InfoPage } from '../info/info';
@@ -40,13 +40,19 @@ export class MainPage {
          public loadCtrl : LoadingController,
          public http : Http,
           public alrtCrtl: AlertController,
-           public toast:ToastController
-         //  private backgroundMode: BackgroundMode
-           
-
-         //  private nativePageTransitions: NativePageTransitions
+           public toast:ToastController,
+            private nativePageTransitions: NativePageTransitions
       ) 
   {//  this.backgroundMode.enable();
+    let options = {
+              adId : 'ca-app-pub-3940256099942544/6300978111',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            });
      this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
      {            
                    this.Summer = data.Summer;
@@ -77,7 +83,31 @@ export class MainPage {
        this.showreport();   
      }          
    }
-   
+   ionViewWillLeave() {
+
+ let options: NativeTransitionOptions = {
+    direction: 'up',
+    duration: 1000,
+    slowdownfactor: 3,
+    slidePixels: 20,
+    iosdelay: 500,
+    androiddelay: 500,
+    fixedPixelsTop: 0,
+    fixedPixelsBottom: 60
+   };
+ this.nativePageTransitions.fade(options)
+   .then(()=>{
+     //  alert("Animated");
+       console.log("Succesfully animated");
+    }   
+   )
+   .catch(()=>{
+   //  alert("not animated");
+     console.log("Not animates");
+   });
+
+}
+
     showreport(){
     //  this.backgroundMode.enable();
       let loading = this.loadCtrl.create({
@@ -94,9 +124,8 @@ export class MainPage {
               
                let toast = this.toast.create({
                 message: 'Precautions shall be taken for the following diseases',
-                duration: 3500,
-                position: 'top',
-                showCloseButton: true
+                duration: 2500,
+                position: 'top'
               });
                 toast.onDidDismiss(() => {
                  let toast = this.toast.create({
@@ -115,13 +144,13 @@ export class MainPage {
     this.navCtrl.push(TutorialPage);
   }
   info(id){
-      this.navCtrl.push(InfoPage,{name: id},{ animate: true, direction: 'forward' });
+      this.navCtrl.push(InfoPage,{name: id});
   }
   cure(id){
-     this.navCtrl.push(CurePage,{name: id},{ animate: true, direction: 'forward' });
+     this.navCtrl.push(CurePage,{name: id});
    }
    prec(id){
-     this.navCtrl.push(PrecPage,{name: id},{ animate: true, direction: 'forward' });
+     this.navCtrl.push(PrecPage,{name: id});
    }
    showdata(){
        switch(this.query){
