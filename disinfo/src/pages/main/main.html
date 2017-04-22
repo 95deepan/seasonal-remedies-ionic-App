@@ -72,7 +72,7 @@
 <ion-slide *ngFor="let win of Winter" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
  <ion-card *ngFor="let disease of win.Diseases">
-  <img class="imgcss" src="assets/img/cold.jpg" (click)=info(win.Sname);/>
+  <img class="imgcss" src="assets/img/winter.jpg" (click)=info(win.Sname);/>
   <ion-card-content>
     <ion-card-title text-center>
       {{disease.Description.name}}

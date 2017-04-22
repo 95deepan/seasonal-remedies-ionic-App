@@ -39,16 +39,15 @@ export class LocationPage {
      ionViewWillLeave() {
 
  let options: NativeTransitionOptions = {
-    direction: 'right',
     duration: 800,
     slowdownfactor: 3,
     slidePixels: 20,
-    iosdelay: 500,
-    androiddelay: 500,
+    iosdelay: 200,
+    androiddelay: 200,
     fixedPixelsTop: 0,
     fixedPixelsBottom: 60
    };
- this.nativePageTransitions.slide(options)
+ this.nativePageTransitions.fade(options)
    .then(()=>{
       // alert("Animated");
        console.log("Succesfully animated");

@@ -4,8 +4,7 @@ import { NavController,Slides,Platform, AlertController, LoadingController,Toast
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 //import { BackgroundMode } from '@ionic-native/background-mode';
-
-import { AdMob } from 'ionic-native';
+//import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
 import { LocationPage } from '../location/location';
 import { InfoPage } from '../info/info';
@@ -44,15 +43,7 @@ export class MainPage {
             private nativePageTransitions: NativePageTransitions
       ) 
   {//  this.backgroundMode.enable();
-    let options = {
-              adId : 'ca-app-pub-3940256099942544/6300978111',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            });
+
      this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
      {            
                    this.Summer = data.Summer;
@@ -86,12 +77,11 @@ export class MainPage {
    ionViewWillLeave() {
 
  let options: NativeTransitionOptions = {
-    direction: 'up',
-    duration: 1000,
+    duration: 800,
     slowdownfactor: 3,
     slidePixels: 20,
-    iosdelay: 500,
-    androiddelay: 500,
+    iosdelay: 200,
+    androiddelay: 200,
     fixedPixelsTop: 0,
     fixedPixelsBottom: 60
    };
@@ -125,13 +115,17 @@ export class MainPage {
                let toast = this.toast.create({
                 message: 'Precautions shall be taken for the following diseases',
                 duration: 2500,
-                position: 'top'
+                position: 'top',
+                showCloseButton : true,
+                closeButtonText: 'ok'
               });
                 toast.onDidDismiss(() => {
                  let toast = this.toast.create({
                 message: this.showeather,
                 duration: 3500,
-                position: 'top'
+                position: 'top',
+                showCloseButton : true,
+                closeButtonText: 'ok'
               });
                toast.present();
              });
