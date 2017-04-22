@@ -7,7 +7,7 @@ import { Http } from '@angular/http';
 
 import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
-import { TutorialPage } from '../tutorial/tutorial';
+import { LocationPage } from '../location/location';
 import { InfoPage } from '../info/info';
 import { CurePage } from '../cure/cure';
 import { PrecPage } from '../prec/prec';
@@ -69,7 +69,7 @@ export class MainPage {
                   buttons: [{
                     text:'OK',
                     handler: data=>{
-                     this.navCtrl.push(TutorialPage);
+                     this.navCtrl.push(LocationPage);
                    }
                   },{
                     text: 'Skip',
@@ -141,7 +141,7 @@ export class MainPage {
   }, 1000);
   }
   lang(){
-    this.navCtrl.push(TutorialPage);
+    this.navCtrl.push(LocationPage);
   }
   info(id){
       this.navCtrl.push(InfoPage,{name: id});

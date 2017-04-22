@@ -19,10 +19,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 //PAGES
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
-import { AboutPage } from '../pages/about/about';
+import { NotifyPage } from '../pages/notify/notify';
 import { TellPage } from '../pages/tell/tell';
 import { RatePage } from '../pages/rate/rate';
-import { TutorialPage } from '../pages/tutorial/tutorial';
+import { LocationPage } from '../pages/location/location';
 import { LangPage } from '../pages/lang/lang';
 import { InfoPage } from '../pages/info/info';
 import { CurePage } from '../pages/cure/cure';
@@ -54,10 +54,10 @@ export const firebaseConfig = {
     MyApp,
     MainPage,
     HomePage,
-    AboutPage,
+    NotifyPage,
     TellPage,
     RatePage,
-    TutorialPage,
+    LocationPage,
     LangPage,
     InfoPage,
     CurePage,
@@ -78,10 +78,10 @@ export const firebaseConfig = {
     MyApp,
     MainPage,
     HomePage,
-    AboutPage,
+    NotifyPage,
     TellPage,
     RatePage,
-    TutorialPage,
+    LocationPage,
     LangPage,
     InfoPage,
     CurePage,

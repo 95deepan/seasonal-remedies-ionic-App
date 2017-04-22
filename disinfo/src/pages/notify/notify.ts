@@ -9,10 +9,10 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 // by default set all notifi active for a particular season.
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-notify',
+  templateUrl: 'notify.html'
 })
-export class AboutPage {
+export class NotifyPage {
     notifyTime: any = "08:00" ;
     notifications: any[] = [];
     days: any[];

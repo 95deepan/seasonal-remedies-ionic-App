@@ -5,11 +5,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { AdminPage } from '../pages/admin/admin';
 import { MainPage } from '../pages/main/main';
 import { HomePage } from '../pages/home/home';
-import { AboutPage } from '../pages/about/about';
+import { NotifyPage } from '../pages/notify/notify';
 import { TellPage } from '../pages/tell/tell';
 import { RatePage } from '../pages/rate/rate';
 // import { LangPage } from '../pages/lang/lang';
-import { TutorialPage } from '../pages/tutorial/tutorial';
+import { LocationPage } from '../pages/location/location';
 // import { TranslateService } from 'ng2-translate';
 // import { LanguageService } from '../providers/language.service';
 // import { LanguageModel } from "../models/language.model";
@@ -52,8 +52,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: MainPage, icon : 'home',color: "home" },
-      { title: 'Set Location', component: TutorialPage,icon : 'ios-pin',color: "location" },
-      { title: 'Manage Notifications', component: AboutPage,icon : 'md-notifications',color: "tell" },
+      { title: 'Set Location', component: LocationPage,icon : 'ios-pin',color: "location" },
+      { title: 'Manage Notifications', component: NotifyPage,icon : 'md-notifications',color: "tell" },
     //  { title: 'Change Language', component: LangPage,icon : 'ios-globe-outline',color: "secondary" },
       { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "gmail" },
       { title: 'Rate this App', component: RatePage,icon : 'ios-star',color: "notification" },

@@ -9,10 +9,10 @@ import 'rxjs/add/operator/map';
 import { MainPage } from '../main/main';
 declare var google;
 @Component({
-  selector: 'page-tutorial',
-  templateUrl: 'tutorial.html'
+  selector: 'page-location',
+  templateUrl: 'location.html'
 })
-export class TutorialPage {
+export class LocationPage {
   @ViewChild('map') mapElement;
   map: any;
   marker: any;
