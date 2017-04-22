@@ -7,6 +7,7 @@ import { Http } from '@angular/http';
 //import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
 import { LocationPage } from '../location/location';
+import { NotifyPage } from '../notify/notify';
 import { InfoPage } from '../info/info';
 import { CurePage } from '../cure/cure';
 import { PrecPage } from '../prec/prec';
@@ -78,7 +79,7 @@ export class MainPage {
 
  let options: NativeTransitionOptions = {
     duration: 800,
-    slowdownfactor: 3,
+    slowdownfactor: 5,
     slidePixels: 20,
     iosdelay: 200,
     androiddelay: 200,
@@ -127,6 +128,31 @@ export class MainPage {
                 showCloseButton : true,
                 closeButtonText: 'ok'
               });
+               toast.onDidDismiss(() => {
+                 // if location is not set click ok.
+                 if(localStorage.getItem('notifyset')=='false'){
+                       let alert = this.alrtCrtl.create({
+                   title: 'Alert',
+                   subTitle: 'Notification is not set',
+                   buttons : [
+                     {
+                        text: 'Set now',
+                        handler: () => {
+                          this.navCtrl.push(NotifyPage);
+                        }
+                     },
+                     {
+                       text: 'Later',
+                       role: 'cancel'
+                     }
+                   ]
+                 });
+                 alert.present();
+                 }
+                 else{
+                   return;
+                 }
+               });
                toast.present();
              });
               toast.present();
@@ -186,61 +212,94 @@ export class MainPage {
      }
   seasonfetch(){
        switch(this.setWeather){
+
          case 'clear sky':
          this.query = 'summer';
          this.slides.slideTo(0,0);
+         localStorage.setItem('newseason','summer');
          break;
+
          case 'few clouds':
          this.query = 'summer';
          this.slides.slideTo(0,0);
+         localStorage.setItem('newseason','summer');
          break;
+
          case 'scattered clouds':
          this.query = 'fall';
          this.slides.slideTo(2,0);
+         localStorage.setItem('newseason','fall');
          break;
+
          case 'broken clouds':
          this.query = 'spring';
          this.slides.slideTo(3,0);
+         localStorage.setItem('newseason','spring');
          break;
+
          case 'shower rain':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
+
          case 'light rain':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
+
          case 'rain':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
+
          case 'thunderstorm':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
+
          case 'mist':
          this.query = 'winter';
          this.slides.slideTo(1,0);
+         localStorage.setItem('newseason','winter');
          break; 
+
          case 'snow':
          this.query = 'winter';
          this.slides.slideTo(1,0);
-         break;         
+         localStorage.setItem('newseason','winter');
+         break;   
+
          case 'haze':
          this.query = 'summer';
          this.slides.slideTo(0,0);
+         localStorage.setItem('newseason','summer');
          break;
+
          case 'moderate rain':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
+
+         case 'heavy intensity rain':
+         this.query = 'rainy';
+         this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
+         break;
+
          case 'overcast clouds':
          this.query = 'rainy';
          this.slides.slideTo(4,0);
+         localStorage.setItem('newseason','rainy');
          break;
 
          default:
          this.query = 'summer';
+         localStorage.setItem('newseason','summer');
           }   
   }
 }

@@ -40,7 +40,7 @@ export class LocationPage {
 
  let options: NativeTransitionOptions = {
     duration: 800,
-    slowdownfactor: 3,
+    slowdownfactor: 5,
     slidePixels: 20,
     iosdelay: 200,
     androiddelay: 200,

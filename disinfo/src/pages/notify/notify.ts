@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
 import { NavController, Platform,AlertController } from 'ionic-angular';
 import { LocalNotifications,AdMob } from 'ionic-native';
+import { MainPage } from '../main/main';
 import * as moment from 'moment';
 @Component({
   selector: 'page-notify',
@@ -18,7 +19,7 @@ export class NotifyPage {
     chosenHours: number;
     chosenMinutes: number;
     weather:any;
-    season:any = "summer" ;
+    season:any  ;
    constructor(
      public navCtrl: NavController,
       public platform: Platform,
@@ -178,30 +179,33 @@ export class NotifyPage {
  }
   ionViewDidLoad(){ 
      // Getting openweather data from storage
-    this.weather = localStorage.getItem('weather');
+    this.weather = localStorage.getItem('newseason');
+    //debugger;
+
     // setting value of season to show days list
-     if(this.weather == 'clear sky' || this.weather == 'few clouds' || this.weather == 'haze'){
-       this.season = 'summer'; 
+    switch(this.weather){
+
+        case 'summer':
+         this.season = "summer";
+         break;
+
+        case 'winter':
+         this.season = "winter" ;
+         break;
+
+        case 'fall':
+          this.season = "fall" ;
+         break;
+
+        case 'spring':
+        this.season = "spring";
+         break;
+
+        case 'rainy':
+         this.season = "rainy";
+         break;
     }
-     if(this.weather == 'snow' || this.weather == 'mist'){
-       this.season = 'winter';
-     }
-     if(this.weather == 'scattered clouds' ){
-         this.season = 'fall';
-     }
-      if(this.weather = 'broken clouds'){
-          this.season = 'spring';
-      }
-      if(
-    this.weather == 'shower rain' || 
-    this.weather == 'light rain'  ||
-    this.weather == 'rain'        ||
-    this.weather == 'thunderstorm'||
-    this.weather == 'moderate rain'||
-    this.weather == 'overcast clouds'
-){
-    this.season = 'rainy';
-}
+    
      // Showing Ad banner
     let options = {
               adId : 'ca-app-pub-3940256099942544/6300978111',
@@ -220,10 +224,11 @@ export class NotifyPage {
     }
  
     addNotifications(){
+        localStorage.setItem('notifyset','true')
        let currentDate = new Date();
     let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
                     //-------------------------SUMMER-------------
- if(this.weather == 'clear sky' || this.weather == 'few clouds' || this.weather == 'haze'){
+ if(this.weather == 'summer'){
     for(let day of this.daysA){
  
         if(day.checked){
@@ -254,7 +259,7 @@ export class NotifyPage {
     } 
  }
            //-------------------------WINTER-------------
-  if(this.weather == 'snow' || this.weather == 'mist'){
+  if(this.weather == 'winter'){
     for(let day of this.daysB){
  
         if(day.checked){
@@ -285,7 +290,7 @@ export class NotifyPage {
     }
   }
              //-------------------------FALL-------------
-   if(this.weather == 'scattered clouds' ){
+   if(this.weather == 'fall' ){
     for(let day of this.daysC){
  
         if(day.checked){
@@ -316,7 +321,7 @@ export class NotifyPage {
     }
           }
             //-------------------------SPRING-------------
-  if(this.weather = 'broken clouds'){
+  if(this.weather = 'spring'){
     for(let day of this.daysD){
  
         if(day.checked){
@@ -348,13 +353,7 @@ export class NotifyPage {
   }
                 //-------------------------RAINY-------------
 if(
-    this.weather == 'shower rain' || 
-    this.weather == 'light rain'  ||
-    this.weather == 'rain'        ||
-    this.weather == 'thunderstorm'||
-    this.weather == 'moderate rain'||
-    this.weather == 'overcast clouds'
-){
+    this.weather == 'rainy' ){
     for(let day of this.daysE){
  
         if(day.checked){
@@ -399,7 +398,12 @@ if(
  
             let alert = this.alertCtrl.create({
                 title: 'Notifications set',
-                buttons: ['Ok']
+                buttons: [{
+                    text:'ok',
+                    handler: () => {
+                    this.navCtrl.push(MainPage);
+                    }
+                }]
             });
  
             alert.present();
@@ -411,7 +415,7 @@ if(
  
     cancelAll(){
         LocalNotifications.cancelAll();
- 
+        localStorage.setItem('notifyset','false');
     let alert = this.alertCtrl.create({
         title: 'Successfully Disabled Notifications',
         buttons: ['Ok']

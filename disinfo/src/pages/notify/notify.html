@@ -34,35 +34,35 @@
          </ion-col>
         </ion-row>
         <div *ngIf = " season == 'summer'">
-        <p> Days of Summer </p>
+       
         <ion-item *ngFor="let day of daysA">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'winter'">
-            <p> Days of Winter </p>
+           
         <ion-item *ngFor="let day of daysB">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'fall'">
-            <p> Days of Fall </p>
+           
         <ion-item *ngFor="let day of daysC">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'spring'">
-            <p> Days of Spring </p>
+           
         <ion-item *ngFor="let day of daysD">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'rainy'">
-            <p> Days of Rain </p>
+           
         <ion-item *ngFor="let day of daysE">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
