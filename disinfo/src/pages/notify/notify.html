@@ -7,8 +7,30 @@
       Set Notification Time
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="addNotifications()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+    <div *ngIf = " season == 'summer'">
+      <button ion-button icon-only (click)="addNotifications('summer')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
+    </div>
+
+    <div *ngIf = " season == 'winter'">
+      <button ion-button icon-only (click)="addNotifications('winter')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+      </button>
+    </div>
+
+    <div *ngIf = " season == 'fall'">
+      <button ion-button icon-only (click)="addNotifications('fall')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+      </button>
+    </div>
+
+    <div *ngIf = " season == 'spring'">
+      <button ion-button icon-only (click)="addNotifications('spring')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+      </button>
+    </div>
+
+    <div *ngIf = " season == 'rainy'">
+      <button ion-button icon-only (click)="addNotifications('rainy')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+      </button>
+    </div>
     </ion-buttons>
   </ion-navbar>
 </ion-header>

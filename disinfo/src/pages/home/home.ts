@@ -18,7 +18,7 @@ export class HomePage {
     public loadingCtrl: LoadingController,
     public storage:Storage
     ) {
-     
+     localStorage.setItem('notifyset','false');
     }
      	
     openmain() {

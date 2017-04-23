@@ -223,12 +223,12 @@ export class NotifyPage {
       this.chosenMinutes = time.minute.value;
     }
  
-    addNotifications(){
+    addNotifications(weather){
         localStorage.setItem('notifyset','true')
        let currentDate = new Date();
     let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
                     //-------------------------SUMMER-------------
- if(this.weather == 'summer'){
+ if(weather == 'summer'){
     for(let day of this.daysA){
  
         if(day.checked){
@@ -259,7 +259,7 @@ export class NotifyPage {
     } 
  }
            //-------------------------WINTER-------------
-  if(this.weather == 'winter'){
+  if(weather == 'winter'){
     for(let day of this.daysB){
  
         if(day.checked){
@@ -290,7 +290,7 @@ export class NotifyPage {
     }
   }
              //-------------------------FALL-------------
-   if(this.weather == 'fall' ){
+   if(weather == 'fall' ){
     for(let day of this.daysC){
  
         if(day.checked){
@@ -321,7 +321,7 @@ export class NotifyPage {
     }
           }
             //-------------------------SPRING-------------
-  if(this.weather = 'spring'){
+  if(weather = 'spring'){
     for(let day of this.daysD){
  
         if(day.checked){
@@ -352,8 +352,7 @@ export class NotifyPage {
     }
   }
                 //-------------------------RAINY-------------
-if(
-    this.weather == 'rainy' ){
+if(weather == 'rainy' ){
     for(let day of this.daysE){
  
         if(day.checked){
