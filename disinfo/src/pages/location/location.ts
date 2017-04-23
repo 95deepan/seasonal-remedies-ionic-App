@@ -1,8 +1,8 @@
 import { Component,ViewChild,Renderer } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { Geolocation,AdMob } from 'ionic-native';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { Geolocation } from 'ionic-native';
+//import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import 'rxjs/add/operator/map';
 
@@ -34,42 +34,16 @@ export class LocationPage {
      public alertCtrl: AlertController,
       public http: Http,
        public renderer: Renderer,
-        public nativePageTransitions: NativePageTransitions
+       // public nativePageTransitions: NativePageTransitions
      ) {  }
      ionViewWillLeave() {
 
- let options: NativeTransitionOptions = {
-    duration: 800,
-    slowdownfactor: 5,
-    slidePixels: 20,
-    iosdelay: 200,
-    androiddelay: 200,
-    fixedPixelsTop: 0,
-    fixedPixelsBottom: 60
-   };
- this.nativePageTransitions.fade(options)
-   .then(()=>{
-      // alert("Animated");
-       console.log("Succesfully animated");
-    }   
-   )
-   .catch(()=>{
-   //  alert("not animated");
-     console.log("Not animates");
-   });
+
 
 }
   ionViewDidLoad() {
     this.initMap();
-    let options = {
-              adId : 'ca-app-pub-3940256099942544/6300978111',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            })
+  
   }
   closesearchbar(){
     this.showsearch = false;

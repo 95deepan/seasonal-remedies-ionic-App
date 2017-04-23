@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
 import { NavController, Platform,AlertController } from 'ionic-angular';
-import { LocalNotifications,AdMob } from 'ionic-native';
+import { LocalNotifications } from 'ionic-native';
 import { MainPage } from '../main/main';
 import * as moment from 'moment';
 @Component({
@@ -207,15 +207,7 @@ export class NotifyPage {
     }
     
      // Showing Ad banner
-    let options = {
-              adId : 'ca-app-pub-3940256099942544/6300978111',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            })
+    
     }
  
     timeChange(time){
@@ -223,12 +215,11 @@ export class NotifyPage {
       this.chosenMinutes = time.minute.value;
     }
  
-    addNotifications(weather){
+    addNotificationsA(){
         localStorage.setItem('notifyset','true')
        let currentDate = new Date();
     let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
-                    //-------------------------SUMMER-------------
- if(weather == 'summer'){
+     console.log("summer notif set");
     for(let day of this.daysA){
  
         if(day.checked){
@@ -257,9 +248,35 @@ export class NotifyPage {
         }
  
     } 
- }
-           //-------------------------WINTER-------------
-  if(weather == 'winter'){
+            // Cancel any existing notifications
+        LocalNotifications.cancelAll().then(() => {
+ 
+            // Schedule the new notifications
+            LocalNotifications.schedule(this.notifications);
+ 
+            this.notifications = [];
+ 
+            let alert = this.alertCtrl.create({
+                subTitle: 'Notifications set',
+                buttons: [{
+                    text:'ok',
+                    handler: () => {
+                    this.navCtrl.push(MainPage);
+                    }
+                }]
+            });
+ 
+            alert.present();
+ 
+        });
+ 
+    
+    }
+        addNotificationsB(){
+        localStorage.setItem('notifyset','true')
+       let currentDate = new Date();
+    let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+     console.log("winter notif set");
     for(let day of this.daysB){
  
         if(day.checked){
@@ -288,9 +305,33 @@ export class NotifyPage {
         }
  
     }
-  }
-             //-------------------------FALL-------------
-   if(weather == 'fall' ){
+      LocalNotifications.cancelAll().then(() => {
+ 
+            // Schedule the new notifications
+            LocalNotifications.schedule(this.notifications);
+ 
+            this.notifications = [];
+ 
+            let alert = this.alertCtrl.create({
+                subTitle: 'Notifications set',
+                buttons: [{
+                    text:'ok',
+                    handler: () => {
+                    this.navCtrl.push(MainPage);
+                    }
+                }]
+            });
+ 
+            alert.present();
+ 
+        });
+    
+    }
+        addNotificationsC(){
+        localStorage.setItem('notifyset','true')
+       let currentDate = new Date();
+    let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+     console.log("fall notif set");
     for(let day of this.daysC){
  
         if(day.checked){
@@ -318,10 +359,36 @@ export class NotifyPage {
  
         }
  
+    } 
+            // Cancel any existing notifications
+        LocalNotifications.cancelAll().then(() => {
+ 
+            // Schedule the new notifications
+            LocalNotifications.schedule(this.notifications);
+ 
+            this.notifications = [];
+ 
+            let alert = this.alertCtrl.create({
+                subTitle: 'Notifications set',
+                buttons: [{
+                    text:'ok',
+                    handler: () => {
+                    this.navCtrl.push(MainPage);
+                    }
+                }]
+            });
+ 
+            alert.present();
+ 
+        });
+ 
+    
     }
-          }
-            //-------------------------SPRING-------------
-  if(weather = 'spring'){
+        addNotificationsD(){
+        localStorage.setItem('notifyset','true')
+       let currentDate = new Date();
+    let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+     console.log("spring notif set");
     for(let day of this.daysD){
  
         if(day.checked){
@@ -349,10 +416,36 @@ export class NotifyPage {
  
         }
  
+    } 
+            // Cancel any existing notifications
+        LocalNotifications.cancelAll().then(() => {
+ 
+            // Schedule the new notifications
+            LocalNotifications.schedule(this.notifications);
+ 
+            this.notifications = [];
+ 
+            let alert = this.alertCtrl.create({
+                subTitle: 'Notifications set',
+                buttons: [{
+                    text:'ok',
+                    handler: () => {
+                    this.navCtrl.push(MainPage);
+                    }
+                }]
+            });
+ 
+            alert.present();
+ 
+        });
+ 
+    
     }
-  }
-                //-------------------------RAINY-------------
-if(weather == 'rainy' ){
+        addNotificationsE(){
+        localStorage.setItem('notifyset','true')
+       let currentDate = new Date();
+    let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+     console.log("rainy notif set");
     for(let day of this.daysE){
  
         if(day.checked){
@@ -380,14 +473,8 @@ if(weather == 'rainy' ){
  
         }
  
-    }
-}
- 
-   // console.log("Notifications to be scheduled: ", this.notifications);
- 
-    if(this.platform.is('cordova')){
- 
-        // Cancel any existing notifications
+    } 
+            // Cancel any existing notifications
         LocalNotifications.cancelAll().then(() => {
  
             // Schedule the new notifications
@@ -396,7 +483,7 @@ if(weather == 'rainy' ){
             this.notifications = [];
  
             let alert = this.alertCtrl.create({
-                title: 'Notifications set',
+                subTitle: 'Notifications set',
                 buttons: [{
                     text:'ok',
                     handler: () => {
@@ -409,8 +496,10 @@ if(weather == 'rainy' ){
  
         });
  
+    
     }
-    }
+    
+                
  
     cancelAll(){
         LocalNotifications.cancelAll();

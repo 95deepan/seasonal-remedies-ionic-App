@@ -82,7 +82,7 @@ export class MainPage {
     slowdownfactor: 5,
     slidePixels: 20,
     iosdelay: 200,
-    androiddelay: 200,
+    androiddelay: 150,
     fixedPixelsTop: 0,
     fixedPixelsBottom: 60
    };

@@ -7,30 +7,31 @@
       Set Notification Time
     </ion-title>
     <ion-buttons end>
-    <div *ngIf = " season == 'summer'">
-      <button ion-button icon-only (click)="addNotifications('summer')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+          <div *ngIf = " season == 'summer'">
+           
+        <button ion-button icon-only (click)="addNotificationsA()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
-    </div>
-
-    <div *ngIf = " season == 'winter'">
-      <button ion-button icon-only (click)="addNotifications('winter')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+          </div>
+           <div *ngIf = " season == 'winter'">
+            
+        <button ion-button icon-only (click)="addNotificationsB()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
-    </div>
-
-    <div *ngIf = " season == 'fall'">
-      <button ion-button icon-only (click)="addNotifications('fall')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+          </div>
+           <div *ngIf = " season == 'fall'">
+            
+        <button ion-button icon-only (click)="addNotificationsC()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
-    </div>
-
-    <div *ngIf = " season == 'spring'">
-      <button ion-button icon-only (click)="addNotifications('spring')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+          </div>
+           <div *ngIf = " season == 'spring'">
+          
+        <button ion-button icon-only (click)="addNotificationsD()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
-    </div>
-
-    <div *ngIf = " season == 'rainy'">
-      <button ion-button icon-only (click)="addNotifications('rainy')"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
+          </div>
+      <div *ngIf = " season == 'rainy'">
+           
+        <button ion-button icon-only (click)="addNotificationsE()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
       </button>
-    </div>
+          </div>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -56,35 +57,35 @@
          </ion-col>
         </ion-row>
         <div *ngIf = " season == 'summer'">
-       
+       summer
         <ion-item *ngFor="let day of daysA">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'winter'">
-           
+           winter
         <ion-item *ngFor="let day of daysB">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'fall'">
-           
+           fall
         <ion-item *ngFor="let day of daysC">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'spring'">
-           
+           spring
         <ion-item *ngFor="let day of daysD">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
         </ion-item>
         </div>
         <div *ngIf = " season == 'rainy'">
-           
+           rainy
         <ion-item *ngFor="let day of daysE">
             <ion-label item-left>{{day.title}}</ion-label>
             <ion-toggle [(ngModel)]="day.checked" color="appTheme"></ion-toggle>
