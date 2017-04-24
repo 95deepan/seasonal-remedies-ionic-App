@@ -78,7 +78,7 @@ export class MainPage {
    ionViewWillLeave() {
 
  let options: NativeTransitionOptions = {
-    duration: 800,
+    duration: 450,
     slowdownfactor: 5,
     slidePixels: 20,
     iosdelay: 200,

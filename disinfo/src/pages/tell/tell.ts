@@ -33,8 +33,8 @@ export class TellPage {
             else{
               this.show = true;
             }
-            let options = {
-              adId : 'ca-app-pub-3940256099942544/6300978111',
+            let options = { 
+              adId : 'ca-app-pub-4733905153068511/9078442787',
               adSize: 'SMART_BANNER',
               isTesting : false
             };
@@ -42,6 +42,9 @@ export class TellPage {
             {
               AdMob.showBanner(8); 
             })
+          }
+          ionViewWillLeave() {
+            AdMob.hideBanner();
           }
      submit(){
     if (!this.emailForm.valid) {

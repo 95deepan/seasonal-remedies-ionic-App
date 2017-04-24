@@ -1,13 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { AppRate } from '@ionic-native/app-rate';
 
-import { AdminPage } from '../pages/admin/admin';
+//import { AdminPage } from '../pages/admin/admin';
 import { MainPage } from '../pages/main/main';
 import { HomePage } from '../pages/home/home';
 import { NotifyPage } from '../pages/notify/notify';
 import { TellPage } from '../pages/tell/tell';
-import { RatePage } from '../pages/rate/rate';
+//import { RatePage } from '../pages/rate/rate';
 // import { LangPage } from '../pages/lang/lang';
 import { LocationPage } from '../pages/location/location';
 // import { TranslateService } from 'ng2-translate';
@@ -28,6 +29,7 @@ export class MyApp {
   constructor(
     public platform: Platform,
      public storage: Storage,
+      public appRate: AppRate
     //  public translate: TranslateService,
     //   public languageService: LanguageService
        ) {
@@ -56,12 +58,21 @@ export class MyApp {
       { title: 'Manage Notifications', component: NotifyPage,icon : 'md-notifications',color: "tell" },
     //  { title: 'Change Language', component: LangPage,icon : 'ios-globe-outline',color: "secondary" },
       { title: 'Tell Us', component: TellPage,icon : 'md-mail',color: "gmail" },
-      { title: 'Rate this App', component: RatePage,icon : 'ios-star',color: "notification" },
-      { title: 'Admin', component: AdminPage,icon : 'md-cog',color: "home" }
+    //  { title: 'Rate this App', component: RatePage,icon : 'ios-star',color: "notification" },
+     // { title: 'Admin', component: AdminPage,icon : 'md-cog',color: "home" }
     ]; 
 
   }
+  promptrate(){
+    
+     this.appRate.preferences.storeAppURL = {
+   ios: 'jfdhdsfkj',
+   android: 'market://details?id=com.DeepanKumarC',
+   windows: 'ms-windows-store://review/?ProductId=sdfsd>'
+ };
 
+this.appRate.promptForRating(true);
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

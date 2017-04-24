@@ -12,7 +12,8 @@ import { AngularFireModule } from 'angularfire2';
 
 //NATIVE COMPONENTS
 import { NativePageTransitions } from '@ionic-native/native-page-transitions'; 
-import { InAppBrowser } from '@ionic-native/in-app-browser'; 
+//import { InAppBrowser } from '@ionic-native/in-app-browser'; 
+import { AppRate } from '@ionic-native/app-rate';
 //import { Network } from '@ionic-native/network';
 //import { BackgroundMode } from '@ionic-native/background-mode';
 
@@ -21,7 +22,7 @@ import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
 import { NotifyPage } from '../pages/notify/notify';
 import { TellPage } from '../pages/tell/tell';
-import { RatePage } from '../pages/rate/rate';
+//import { RatePage } from '../pages/rate/rate';
 import { LocationPage } from '../pages/location/location';
 import { LangPage } from '../pages/lang/lang';
 import { InfoPage } from '../pages/info/info';
@@ -56,7 +57,6 @@ export const firebaseConfig = {
     HomePage,
     NotifyPage,
     TellPage,
-    RatePage,
     LocationPage,
     LangPage,
     InfoPage,
@@ -80,7 +80,6 @@ export const firebaseConfig = {
     HomePage,
     NotifyPage,
     TellPage,
-    RatePage,
     LocationPage,
     LangPage,
     InfoPage,
@@ -94,7 +93,7 @@ export const firebaseConfig = {
               Data,
            //   Network, 
           //    BackgroundMode,
-              InAppBrowser,
+              AppRate,
               NativePageTransitions
               ]
 })

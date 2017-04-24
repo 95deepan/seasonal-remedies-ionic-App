@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController,NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { AdMob } from 'ionic-native';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -71,8 +72,21 @@ Summer: any = [];
       this.falsel = false;
       this.raisel = true;
     }
+     let options = { 
+              adId : 'ca-app-pub-4733905153068511/9078442787',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
+         
+         
   }
-
+  ionViewWillLeave() {
+            AdMob.hideBanner();
+          }
   dismiss() {
     this.viewCtrl.dismiss();
   }
