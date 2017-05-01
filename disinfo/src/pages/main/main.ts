@@ -4,7 +4,7 @@ import { NavController,Slides,Platform, AlertController, LoadingController,Toast
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 //import { BackgroundMode } from '@ionic-native/background-mode';
-//import { AdMob } from 'ionic-native';
+import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
 import { LocationPage } from '../location/location';
 import { NotifyPage } from '../notify/notify';
@@ -43,7 +43,8 @@ export class MainPage {
            public toast:ToastController,
             private nativePageTransitions: NativePageTransitions
       ) 
-  {//  this.backgroundMode.enable();
+  {       
+     AdMob.hideBanner();
 
      this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
      {            
@@ -94,7 +95,7 @@ export class MainPage {
    )
    .catch(()=>{
    //  alert("not animated");
-     console.log("Not animates");
+     console.log("Not animates gdgfdg");
    });
 
 }

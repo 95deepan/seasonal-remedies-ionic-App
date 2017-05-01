@@ -4,7 +4,7 @@ import { NavController,Slides } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
-
+import { AdMob } from 'ionic-native';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,6 +19,7 @@ export class HomePage {
     public storage:Storage
     ) {
      localStorage.setItem('notifyset','false');
+     AdMob.hideBanner();
     }
      	
     openmain() {

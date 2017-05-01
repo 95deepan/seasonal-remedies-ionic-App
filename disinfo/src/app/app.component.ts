@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen,AdMob } from 'ionic-native';
 import { AppRate } from '@ionic-native/app-rate';
 
 //import { AdminPage } from '../pages/admin/admin';
@@ -38,6 +38,15 @@ export class MyApp {
     this.languages = this.languageService.getLanguages();  
     this.translate.setDefaultLang(this.languageSelected);
     this.translate.use(this.languageSelected); */
+      let options = { 
+              adId : 'ca-app-pub-4733905153068511/9078442787',
+              adSize: 'SMART_BANNER',
+              isTesting : false
+            };
+            AdMob.createBanner(options).then(()=>
+            {
+              AdMob.showBanner(8); 
+            })
     this.initializeApp();
 
       this.storage.get('hasSeenSlides')

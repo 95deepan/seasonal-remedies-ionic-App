@@ -3,7 +3,6 @@ import { NavController, NavParams,AlertController,LoadingController } from 'ioni
 import { AngularFire,FirebaseListObservable } from 'angularfire2';
 import { EmailValidator } from '../../providers/email';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AdMob } from 'ionic-native';
 
 @Component({
   selector: 'page-tell',
@@ -23,6 +22,7 @@ export class TellPage {
               public loadingCtrl: LoadingController,
                public formBuilder: FormBuilder,
             ) {
+              console.log("there is no problem with chrome");
             this.data = this.angfire.database.list('/data');
             this.emailForm = formBuilder.group({
               email: ['', Validators.compose([Validators.required, EmailValidator.isValid])]
@@ -33,18 +33,7 @@ export class TellPage {
             else{
               this.show = true;
             }
-            let options = { 
-              adId : 'ca-app-pub-4733905153068511/9078442787',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            })
-          }
-          ionViewWillLeave() {
-            AdMob.hideBanner();
+          
           }
      submit(){
     if (!this.emailForm.valid) {

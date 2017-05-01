@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
 import { NavController, Platform,AlertController } from 'ionic-angular';
-import { LocalNotifications,AdMob } from 'ionic-native';
+import { LocalNotifications } from 'ionic-native';
 import { MainPage } from '../main/main';
 import * as moment from 'moment';
 @Component({
@@ -207,19 +207,9 @@ export class NotifyPage {
     }
     
      // Showing Ad banner
-     let options = { 
-              adId : 'ca-app-pub-4733905153068511/9078442787',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            })
+   
           }
-          ionViewWillLeave() {
-            AdMob.hideBanner();
-          }
+         
     timeChange(time){
        this.chosenHours = time.hour.value;
       this.chosenMinutes = time.minute.value;

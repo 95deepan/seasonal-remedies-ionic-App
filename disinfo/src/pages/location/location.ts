@@ -1,7 +1,7 @@
 import { Component,ViewChild,Renderer } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { Geolocation,AdMob } from 'ionic-native';
+import { Geolocation } from 'ionic-native';
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import 'rxjs/add/operator/map';
@@ -35,20 +35,7 @@ export class LocationPage {
       public http: Http,
        public renderer: Renderer,
        // public nativePageTransitions: NativePageTransitions
-     ) { let options = { 
-              adId : 'ca-app-pub-4733905153068511/9078442787',
-              adSize: 'SMART_BANNER',
-              isTesting : false
-            };
-            AdMob.createBanner(options).then(()=>
-            {
-              AdMob.showBanner(8); 
-            })
-         
-         
-  }
-  ionViewWillLeave() {
-            AdMob.hideBanner();
+     ) { 
           }
   ionViewDidLoad() {
     this.initMap();
