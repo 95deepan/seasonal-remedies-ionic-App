@@ -14,4 +14,5 @@ Before giving the command ionic serve ,  Please follow the following steps:
   com.seasonal.android
 # Check if all the plugins were included in package.json file 
 # fetch all the required plugins using npm
+# Gitlab and slack integration test
  
