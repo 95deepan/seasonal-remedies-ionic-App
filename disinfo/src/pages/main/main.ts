@@ -1,9 +1,7 @@
 import { Component,ViewChild } from '@angular/core';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { NavController,Slides,Platform, AlertController, LoadingController,ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
-//import { BackgroundMode } from '@ionic-native/background-mode';
 import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
 import { LocationPage } from '../location/location';
@@ -40,8 +38,7 @@ export class MainPage {
          public loadCtrl : LoadingController,
          public http : Http,
           public alrtCrtl: AlertController,
-           public toast:ToastController,
-            private nativePageTransitions: NativePageTransitions
+           public toast:ToastController
       ) 
   {       
      AdMob.hideBanner();
@@ -76,29 +73,7 @@ export class MainPage {
        this.showreport();   
      }          
    }
-   ionViewWillLeave() {
 
- let options: NativeTransitionOptions = {
-    duration: 450,
-    slowdownfactor: 5,
-    slidePixels: 20,
-    iosdelay: 200,
-    androiddelay: 150,
-    fixedPixelsTop: 0,
-    fixedPixelsBottom: 60
-   };
- this.nativePageTransitions.fade(options)
-   .then(()=>{
-     //  alert("Animated");
-       console.log("Succesfully animated");
-    }   
-   )
-   .catch(()=>{
-   //  alert("not animated");
-     console.log("Not animates gdgfdg");
-   });
-
-}
 
     showreport(){
     //  this.backgroundMode.enable();
@@ -164,14 +139,14 @@ export class MainPage {
   lang(){
     this.navCtrl.push(LocationPage);
   }
-  info(id){
-      this.navCtrl.push(InfoPage,{name: id});
+  info(id,info){
+      this.navCtrl.push(InfoPage,{name: id,infois: info});
   }
-  cure(id){
-     this.navCtrl.push(CurePage,{name: id});
+  cure(id,cure){
+     this.navCtrl.push(CurePage,{name: id,cureis:cure});
    }
-   prec(id){
-     this.navCtrl.push(PrecPage,{name: id});
+   prec(id,prec){
+     this.navCtrl.push(PrecPage,{name: id,precis:prec});
    }
    showdata(){
        switch(this.query){
