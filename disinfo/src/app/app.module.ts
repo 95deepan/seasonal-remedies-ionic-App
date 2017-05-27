@@ -25,6 +25,7 @@ import { InfoPage } from '../pages/info/info';
 import { CurePage } from '../pages/cure/cure';
 import { PrecPage } from '../pages/prec/prec';
 import { AdminPage } from '../pages/admin/admin';
+import { PopoverPage } from '../pages/popover/popover';
 
 //**********PROVIDERS
 import { Data } from '../providers/data';
@@ -58,7 +59,8 @@ export const firebaseConfig = {
     InfoPage,
     CurePage,
     PrecPage,
-    AdminPage
+    AdminPage,
+    PopoverPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -81,7 +83,8 @@ export const firebaseConfig = {
     InfoPage,
     CurePage,
     PrecPage,
-    AdminPage
+    AdminPage,
+    PopoverPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: Storage, useFactory: provideStorage},

@@ -153,8 +153,9 @@ locate(){
       buttons: [{
         text:'Confirm',
         handler: data=>{
-           this.navCtrl.push(MainPage);
+           this.navCtrl.setRoot(MainPage);
            localStorage.setItem("newloc","yes");
+           localStorage.setItem("location",this.address);
          }
         }], 
     });

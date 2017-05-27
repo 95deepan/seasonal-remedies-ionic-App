@@ -183,7 +183,7 @@ export class NotifyPage {
                 buttons: [{
                     text:'ok',
                     handler: () => {
-                    this.navCtrl.push(MainPage);
+                    this.navCtrl.setRoot(MainPage);
                     }
                 }]
             });

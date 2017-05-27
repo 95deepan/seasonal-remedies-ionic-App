@@ -1,14 +1,24 @@
 import { Component,ViewChild } from '@angular/core';
-import { NavController,Slides,Platform, AlertController, LoadingController,ToastController } from 'ionic-angular';
-import { AngularFire,FirebaseListObservable } from 'angularfire2';
-import { Http } from '@angular/http';
-import { AdMob } from 'ionic-native';
+import { 
+  NavController,
+  Slides,
+  Platform, 
+  AlertController, 
+  LoadingController,
+  ToastController, 
+  PopoverController 
+} from 'ionic-angular';
 // import { LangPage } from '../lang/lang';
 import { LocationPage } from '../location/location';
 import { NotifyPage } from '../notify/notify';
 import { InfoPage } from '../info/info';
 import { CurePage } from '../cure/cure';
 import { PrecPage } from '../prec/prec';
+import { PopoverPage } from '../popover/popover';
+
+import { AngularFire,FirebaseListObservable } from 'angularfire2';
+import { Http } from '@angular/http';
+import { AdMob } from 'ionic-native';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -23,13 +33,10 @@ export class MainPage {
   spr:FirebaseListObservable<any[]>;
   rai:FirebaseListObservable<any[]>;
 
-  Summer: any = [];
-  Winter: any=[];
-  Fall: any=[];
-  Spring : any=[];
-  Rainy : any=[];
   query : string = 'summer';
   setWeather: any;
+  weatherData:any[];
+  temp:number;
   revLoc = "";
   address: any;
   newlat: any;
@@ -43,7 +50,8 @@ export class MainPage {
          public http : Http,
           public alrtCrtl: AlertController,
            public toast:ToastController,
-            public af: AngularFire
+            public af: AngularFire,
+             public popoverctrl: PopoverController
       ) 
   {       
      AdMob.hideBanner();
@@ -86,12 +94,14 @@ export class MainPage {
       setTimeout(() => {
       this.weather = "http://api.openweathermap.org/data/2.5/weather?lat="+this.newlat+"&lon="+this.newlon+"&APPID=352e6fd67fd7ed5c99351254c6d2dd5b";
       this.http.get(this.weather).map(res => res.json()).subscribe(data => {
+              this.weatherData = [];
+              this.weatherData = data;
               this.setWeather = data.weather[0].description;
                localStorage.setItem('weather',this.setWeather);
               if(localStorage.getItem("newloc")=="yes"){
                   this.seasonfetch();
               }
-             
+              
               this.showeather = "Since the weather condition is "+ data.weather[0].description +"."; 
               
                let toast = this.toast.create({
@@ -148,8 +158,47 @@ export class MainPage {
          loading.dismiss();
   }, 1000);
   }
-  lang(){
-    this.navCtrl.push(LocationPage);
+  pop(myevent){
+    let popover = this.popoverctrl.create(PopoverPage);
+    popover.present({ ev: myevent }); 
+
+    popover.onDidDismiss((item)=>{
+       if(item == "Location"){
+        let alert = this.alrtCrtl.create({
+          title: 'My Location',
+          subTitle: localStorage.getItem("location"),
+          buttons: [{
+            text:'Ok',
+            role: 'cancel'
+          },
+          {
+            text: 'Change',
+            handler:data=>{
+              this.navCtrl.push(LocationPage);
+            }
+          }
+          ]
+        });
+         alert.present();
+       }
+       if(item == "Report"){
+         console.log("data is",this.weatherData)
+         this.temp = this.weatherData.main.temp-273.15;
+         var a = parseInt(this.temp);
+         var b = this.weatherData.wind.speed/3.6;
+         //b = parseInt(b);
+         b = Math.round(b*10)/10; 
+         let data = "<br><b>Max. Temperature</b>: "+a+"°C<br><br><b>Humidity:</b>"+this.weatherData.main.humidity+" %<br><br><b>Wind:</b>"+b+" Kmph<br><br><b>Weather condition</b>: "+this.weatherData.weather[0].description ;
+         let alert = this.alrtCrtl.create({
+           title:"<center>Weather Report</center>",
+           subTitle:data
+         });
+         alert.present();
+       }
+       if(item == "share"){
+         alert(item);
+       }
+    })
   }
   info(id,info){
       this.navCtrl.push(InfoPage,{name: id,infois: info});
