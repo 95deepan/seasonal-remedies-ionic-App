@@ -6,7 +6,7 @@
     <ion-title no-padding>Seasonal Remedies</ion-title> 
     <ion-buttons end>
       <button ion-button icon-only (click)="lang();">
-        <ion-icon name="md-pin" color="light"> 
+        <ion-icon name="md-more" color="light"> 
         </ion-icon>
       </button>
     </ion-buttons>
@@ -39,7 +39,7 @@
   
 <ion-slides (ionSlideDidChange)="slideChanged()">
                              <!-- Summer -->
-  <ion-slide *ngFor="let sum of Summer" no-padding style="background-image: url(assets/img/slidebg.jpg);">
+  <ion-slide *ngFor="let sum of sum | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
   <div style="padding-bottom: 95px;"></div>
    <ion-card  *ngFor="let disease of sum.Diseases">
   <img class="imgcss" src="assets/img/summer2.jpg" (click)=info(disease.Description.name,disease.Description.info)/>
@@ -69,7 +69,7 @@
 </ion-card>
   </ion-slide>
     <!-- Winter -->  
-<ion-slide *ngFor="let win of Winter" no-padding style="background-image: url(assets/img/slidebg.jpg);">
+<ion-slide *ngFor="let win of win | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
  <ion-card *ngFor="let disease of win.Diseases">
   <img class="imgcss" src="assets/img/winter.jpg" (click)=info(disease.Description.name,disease.Description.info);/>
@@ -99,7 +99,7 @@
 </ion-card>
 </ion-slide>
                            <!-- Fall -->
-<ion-slide *ngFor="let fal of Fall" no-padding style="background-image: url(assets/img/slidebg.jpg);">
+<ion-slide *ngFor="let fal of fal | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of fal.Diseases">
   <img class="imgcss" src="assets/img/fall2.jpg" (click)=info(disease.Description.name,disease.Description.info);/>
@@ -129,7 +129,7 @@
 </ion-slide>
                                <!-- Spring -->
 
-<ion-slide *ngFor="let spr of Spring" no-padding style="background-image: url(assets/img/slidebg.jpg);">
+<ion-slide *ngFor="let spr of spr | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of spr.Diseases">
   <img class="imgcss" src="assets/img/spring2.jpg" (click)=info(disease.Description.name,disease.Description.info);/>
@@ -158,7 +158,7 @@
 </ion-card>
 </ion-slide>
              <!-- for Rainy Season -->
-  <ion-slide *ngFor="let rain of Rainy" no-padding style="background-image: url(assets/img/slidebg.jpg);">
+  <ion-slide *ngFor="let rain of rai | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
 <div style="padding-bottom: 95px;"></div>
    <ion-card *ngFor="let disease of rain.Diseases">
   <img class="imgcss" src="assets/img/rainy2.jpg" (click)=info(disease.Description.name,disease.Description.info);/>

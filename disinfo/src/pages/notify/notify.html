@@ -6,38 +6,35 @@
     <ion-title>
       Set Notification Time
     </ion-title>
-    <ion-buttons end>
-          <div *ngIf = " season == 'summer'">
-           
-        <button ion-button icon-only (click)="addNotificationsA()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
-      </button>
-          </div>
-           <div *ngIf = " season == 'winter'">
-            
-        <button ion-button icon-only (click)="addNotificationsB()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
-      </button>
-          </div>
-           <div *ngIf = " season == 'fall'">
-            
-        <button ion-button icon-only (click)="addNotificationsC()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
-      </button>
-          </div>
-           <div *ngIf = " season == 'spring'">
-          
-        <button ion-button icon-only (click)="addNotificationsD()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
-      </button>
-          </div>
-      <div *ngIf = " season == 'rainy'">
-           
-        <button ion-button icon-only (click)="addNotificationsE()"><ion-icon color="light" name="md-checkmark-circle"></ion-icon>
-      </button>
-          </div>
-    </ion-buttons>
+   
   </ion-navbar>
 </ion-header>
- 
 <ion-content padding>
- 
+ <ion-fab right bottom *ngIf = " season == 'summer'">
+     <button ion-fab (click)="addNotificationsA()">
+         <ion-icon name="md-checkmark"></ion-icon>
+     </button>
+ </ion-fab>
+  <ion-fab right bottom *ngIf = " season == 'winter'">
+     <button ion-fab (click)="addNotificationsB()">
+         <ion-icon name="md-checkmark"></ion-icon>
+     </button>
+ </ion-fab>
+  <ion-fab right bottom *ngIf = " season == 'fall'">
+     <button ion-fab (click)="addNotificationsC()">
+         <ion-icon name="md-checkmark"></ion-icon>
+     </button>
+ </ion-fab>
+  <ion-fab right bottom *ngIf = " season == 'spring'">
+     <button ion-fab (click)="addNotificationsD()">
+         <ion-icon name="md-checkmark"></ion-icon>
+     </button>
+ </ion-fab>
+  <ion-fab right bottom *ngIf = " season == 'rainy'">
+     <button ion-fab (click)="addNotificationsE()">
+         <ion-icon name="md-checkmark"></ion-icon>
+     </button>
+ </ion-fab>
     <ion-list no-lines>
   
         <ion-item>
@@ -56,6 +53,9 @@
             </button>
          </ion-col>
         </ion-row>
+        <div *ngIf="daysA == undefined ||daysB == undefined ||daysC == undefined ||daysD == undefined ||daysE == undefined" class="wait">
+            Please wait...
+        </div>
         <div *ngIf = " season == 'summer'">
        
         <ion-item *ngFor="let day of daysA">

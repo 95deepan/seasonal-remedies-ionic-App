@@ -2,6 +2,7 @@ import { Component,ViewChild,Renderer } from '@angular/core';
 import { NavController, AlertController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Geolocation } from 'ionic-native';
+import { Keyboard } from 'ionic-native';
 //import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import 'rxjs/add/operator/map';
@@ -46,6 +47,7 @@ export class LocationPage {
   }
   opensearchbar(){
    this.showsearch = true;
+   Keyboard.show();
    console.log("It is clicked");
   }
   setloc(){
@@ -152,6 +154,7 @@ locate(){
         text:'Confirm',
         handler: data=>{
            this.navCtrl.push(MainPage);
+           localStorage.setItem("newloc","yes");
          }
         }], 
     });

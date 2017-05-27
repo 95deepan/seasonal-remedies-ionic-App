@@ -11,10 +11,15 @@
         <ion-icon item-left [color]="p.color" [name]="p.icon"></ion-icon>
         {{p.title}} 
       </button>
+       <button menuClose ion-item  (click)="share()">
+        <ion-icon item-left color="location" name="md-share"></ion-icon>
+        Share this App
+      </button>
       <button menuClose ion-item  (click)="promptrate()">
         <ion-icon item-left color="notification" name="ios-star"></ion-icon>
         Rate this App
       </button>
+
     </ion-list>
   </ion-content>
 

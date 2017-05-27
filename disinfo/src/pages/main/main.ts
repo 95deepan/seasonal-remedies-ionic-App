@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController,Slides,Platform, AlertController, LoadingController,ToastController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { AngularFire,FirebaseListObservable } from 'angularfire2';
 import { Http } from '@angular/http';
 import { AdMob } from 'ionic-native';
 // import { LangPage } from '../lang/lang';
@@ -17,7 +17,12 @@ import 'rxjs/add/operator/map';
 })
 export class MainPage {
    @ViewChild(Slides) slides: Slides;
-   
+  sum:FirebaseListObservable<any[]>;
+  win:FirebaseListObservable<any[]>;
+  fal:FirebaseListObservable<any[]>;
+  spr:FirebaseListObservable<any[]>;
+  rai:FirebaseListObservable<any[]>;
+
   Summer: any = [];
   Winter: any=[];
   Fall: any=[];
@@ -33,24 +38,21 @@ export class MainPage {
   showeather:string;
   constructor(
     public navCtrl: NavController,
-     public storage: Storage,
       public platform: Platform,
-         public loadCtrl : LoadingController,
+        public loadCtrl : LoadingController,
          public http : Http,
           public alrtCrtl: AlertController,
-           public toast:ToastController
+           public toast:ToastController,
+            public af: AngularFire
       ) 
   {       
      AdMob.hideBanner();
+     this.sum = this.af.database.list('/Summer');
+     this.win = this.af.database.list('/Winter');
+     this.fal = this.af.database.list('/Fall');
+     this.spr = this.af.database.list('/Spring');
+     this.rai = this.af.database.list('/Rainy');
 
-     this.http.get('assets/data.json').map(res => res.json()).subscribe(data => 
-     {            
-                   this.Summer = data.Summer;
-                   this.Winter = data.Winter;
-                   this.Fall = data.Fall;
-                   this.Spring = data.Spring;
-                   this.Rainy = data.Rainy;           
-      }); 
        this.newlat = localStorage.getItem('userlat');
        this.newlon = localStorage.getItem('userlon');
        if(this.newlat == undefined && this.newlon == undefined){
@@ -69,14 +71,14 @@ export class MainPage {
                  });
               alert.present(); 
      }
-     else{
+     else { 
        this.showreport();   
      }          
    }
 
 
     showreport(){
-    //  this.backgroundMode.enable();
+      
       let loading = this.loadCtrl.create({
       content: 'Fetching Current Weather condition...',
       });
@@ -86,7 +88,10 @@ export class MainPage {
       this.http.get(this.weather).map(res => res.json()).subscribe(data => {
               this.setWeather = data.weather[0].description;
                localStorage.setItem('weather',this.setWeather);
-              this.seasonfetch();
+              if(localStorage.getItem("newloc")=="yes"){
+                  this.seasonfetch();
+              }
+             
               this.showeather = "Since the weather condition is "+ data.weather[0].description +"."; 
               
                let toast = this.toast.create({
@@ -119,7 +124,8 @@ export class MainPage {
                      },
                      {
                        text: 'Later',
-                       role: 'cancel'
+                       role: 'cancel',
+                       //set Notification here
                      }
                    ]
                  });
@@ -129,9 +135,15 @@ export class MainPage {
                    return;
                  }
                });
-               toast.present();
+               if(localStorage.getItem("newloc")=="yes"){
+                 toast.present();
+                 localStorage.setItem("newloc","no");
+               }
              });
-              toast.present();
+              if(localStorage.getItem("newloc")=="yes"){
+                 toast.present();
+                
+               }
             });
          loading.dismiss();
   }, 1000);

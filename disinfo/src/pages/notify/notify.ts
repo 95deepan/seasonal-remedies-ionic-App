@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-//import { NavController, NavParams } from 'ionic-angular';
-import { NavController, Platform,AlertController } from 'ionic-angular';
+import { NavController, Platform,AlertController,LoadingController } from 'ionic-angular';
 import { LocalNotifications } from 'ionic-native';
 import { MainPage } from '../main/main';
 import * as moment from 'moment';
+import { AngularFire,FirebaseListObservable } from 'angularfire2';
+
 @Component({
   selector: 'page-notify',
   templateUrl: 'notify.html'
 })
 export class NotifyPage {
+    summer:FirebaseListObservable<any[]>;
+    winter:FirebaseListObservable<any[]>;
+    fall:FirebaseListObservable<any[]>;
+    spring:FirebaseListObservable<any[]>;
+    rainy:FirebaseListObservable<any[]>;
+
     notifyTime: any;
     notifications: any[] = []; 
     daysA: any[];
@@ -23,7 +30,10 @@ export class NotifyPage {
    constructor(
      public navCtrl: NavController,
       public platform: Platform,
-       public alertCtrl: AlertController) {
+       public alertCtrl: AlertController,
+        public af:AngularFire,
+         public load: LoadingController
+        ) {
  
         this.notifyTime = moment(new Date()).format();
  
@@ -35,147 +45,26 @@ export class NotifyPage {
             C-FALL
             D-SPRING
             E-RAINY
-         */
-        this.daysA = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Conjunctivitis',ntext:'Wash your eyes with cold water frequently,Keep yourself away from infected person'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'}
-        ];
-         this.daysB = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common cold',ntext:'Avoid cold food items,Have boiled water'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Painful Joints',ntext:'Do not control urine flow, use restroom as frequent as required'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Cold Sores',ntext:'Maintain warm body temperature'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'}
-        ];
-         this.daysC = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'}
-        ];
-         this.daysD = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'}
-        ];
-         this.daysE = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common Fever',ntext:'Avoid cold food items,like Curd,IceCream,Cool Drinks'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Cholera',ntext:'Keep yourself clean, Cook food well(especially sea food),Get vaccinated when you travel'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Dengue',ntext:'Keep your environment clean, to avoid mosquitoes that causes Dengue'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Viral fever',ntext:'Go for regular checkups,once affected with fever.Make sure it is not viral fever'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Bacterial fever',ntext:'Drink boiled water/Purified water only.Take bath daily'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Malaria',ntext:'Use mosquito repellants, especailly when you travel on watery areas'}
-        ];
- 
+         */   
+  
     }
  toggle(){
-    this.daysA = [
-            {title: 'Monday', dayCode: 1, checked: false,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Tuesday', dayCode: 2, checked: false,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Wednesday', dayCode: 3, checked: false,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: false,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'},
-            {title: 'Friday', dayCode: 5, checked: false,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Saturday', dayCode: 6, checked: false,ntitle: 'Conjunctivitis',ntext:'Wash your eyes with cold water frequently,Keep yourself away from infected person'},
-            {title: 'Sunday', dayCode: 0, checked: false,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'}
-        ];
-         this.daysB = [
-            {title: 'Monday', dayCode: 1, checked: false,ntitle: 'Common cold',ntext:'Avoid cold food items,Have boiled water'},
-            {title: 'Tuesday', dayCode: 2, checked: false,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Wednesday', dayCode: 3, checked: false,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Thursday', dayCode: 4, checked: false,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Friday', dayCode: 5, checked: false,ntitle: 'Painful Joints',ntext:'Do not control urine flow, use restroom as frequent as required'},
-            {title: 'Saturday', dayCode: 6, checked: false,ntitle: 'Cold Sores',ntext:'Maintain warm body temperature'},
-            {title: 'Sunday', dayCode: 0, checked: false,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'}
-        ];
-         this.daysC = [
-            {title: 'Monday', dayCode: 1, checked: false,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Tuesday', dayCode: 2, checked: false,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: false,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: false,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Friday', dayCode: 5, checked: false,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'},
-            {title: 'Saturday', dayCode: 6, checked: false,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Sunday', dayCode: 0, checked: false,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'}
-        ];
-         this.daysD = [
-            {title: 'Monday', dayCode: 1, checked: false,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Tuesday', dayCode: 2, checked: false,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: false,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Thursday', dayCode: 4, checked: false,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'},
-            {title: 'Friday', dayCode: 5, checked: false,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Saturday', dayCode: 6, checked: false,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Sunday', dayCode: 0, checked: false,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'}
-        ];
-         this.daysE = [
-            {title: 'Monday', dayCode: 1, checked: false,ntitle: 'Common Fever',ntext:'Avoid cold food items,like Curd,IceCream,Cool Drinks'},
-            {title: 'Tuesday', dayCode: 2, checked: false,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Wednesday', dayCode: 3, checked: false,ntitle: 'Cholera',ntext:'Keep yourself clean, Cook food well(especially sea food),Get vaccinated when you travel'},
-            {title: 'Thursday', dayCode: 4, checked: false,ntitle: 'Dengue',ntext:'Keep your environment clean, to avoid mosquitoes that causes Dengue'},
-            {title: 'Friday', dayCode: 5, checked: false,ntitle: 'Viral fever',ntext:'Go for regular checkups,once affected with fever.Make sure it is not viral fever'},
-            {title: 'Saturday', dayCode: 6, checked: false,ntitle: 'Bacterial fever',ntext:'Drink boiled water/Purified water only.Take bath daily'},
-            {title: 'Sunday', dayCode: 0, checked: false,ntitle: 'Malaria',ntext:'Use mosquito repellants, especailly when you travel on watery areas'}
-        ];
+     for(let f=0;f<7;f++){
+         this.daysA[f].checked = false;
+         this.daysB[f].checked = false;
+         this.daysC[f].checked = false;
+         this.daysD[f].checked = false;
+         this.daysE[f].checked = false;
+     }
  }
  toggle2(){
-             this.daysA = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Conjunctivitis',ntext:'Wash your eyes with cold water frequently,Keep yourself away from infected person'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'}
-        ];
-         this.daysB = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common cold',ntext:'Avoid cold food items,Have boiled water'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Painful Joints',ntext:'Do not control urine flow, use restroom as frequent as required'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Cold Sores',ntext:'Maintain warm body temperature'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'}
-        ];
-         this.daysC = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Sore throat',ntext:'Avoid smoke and other irritants, Increase fluid intakes'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Jaundice',ntext:'Avoid fried foods,junk foods,Alcohol,legumes.Have boiled water'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Flu',ntext:'Use face-mask when you cross polluted areas, Keep your surroundings clean'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Typhoid',ntext:'Have boiled water,Make sure of purified intakes'}
-        ];
-         this.daysD = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Skin Rashes',ntext:'Avoid direct exposure to sunlight, Use prickly heat powder'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Chicken Pox',ntext:'Avoid spicy foods,Keep your body cool, Aciclovir is the antiviral drug'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Fever',ntext:'Avoid cold food items,curd,etc.Go for medical checkup if affected & make sure it is normal fever'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Noro Virus',ntext:'Your hygienicity saves you from this virus'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Asthma',ntext:'Avoid pollution exposure,keep your surroundings free from dust'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Headache',ntext:'Have more water, avoid direct exposure to sunlight'}
-        ];
-         this.daysE = [
-            {title: 'Monday', dayCode: 1, checked: true,ntitle: 'Common Fever',ntext:'Avoid cold food items,like Curd,IceCream,Cool Drinks'},
-            {title: 'Tuesday', dayCode: 2, checked: true,ntitle: 'Common cold',ntext:'Have cold relieving chocolates, Avoid cold items,Dry the hair quickly if you got drenched in rain'},
-            {title: 'Wednesday', dayCode: 3, checked: true,ntitle: 'Cholera',ntext:'Keep yourself clean, Cook food well(especially sea food),Get vaccinated when you travel'},
-            {title: 'Thursday', dayCode: 4, checked: true,ntitle: 'Dengue',ntext:'Keep your environment clean, to avoid mosquitoes that causes Dengue'},
-            {title: 'Friday', dayCode: 5, checked: true,ntitle: 'Viral fever',ntext:'Go for regular checkups,once affected with fever.Make sure it is not viral fever'},
-            {title: 'Saturday', dayCode: 6, checked: true,ntitle: 'Bacterial fever',ntext:'Drink boiled water/Purified water only.Take bath daily'},
-            {title: 'Sunday', dayCode: 0, checked: true,ntitle: 'Malaria',ntext:'Use mosquito repellants, especailly when you travel on watery areas'}
-        ];
+    for(let f=0;f<7;f++){
+         this.daysA[f].checked = true;
+         this.daysB[f].checked = true;
+         this.daysC[f].checked = true;
+         this.daysD[f].checked = true;
+         this.daysE[f].checked = true;
+     }
  }
   ionViewDidLoad(){ 
      // Getting openweather data from storage
@@ -205,9 +94,42 @@ export class NotifyPage {
          this.season = "rainy";
          break;
     }
-    
-     // Showing Ad banner
-   
+          let loading = this.load.create({
+          content:'Please wait...'
+      })
+      loading.present();
+      setTimeout(()=> {
+          this.summer = this.af.database.list('/summer');
+       this.summer.subscribe(sum=>{
+           this.daysA= [];
+           this.daysA = sum;
+       });
+
+       this.winter = this.af.database.list('/winter');
+       this.winter.subscribe(sum=>{
+           this.daysB= [];
+           this.daysB = sum;
+       });
+
+       this.fall = this.af.database.list('/fall');
+       this.fall.subscribe(sum=>{
+           this.daysC= [];
+           this.daysC = sum;
+       });
+
+       this.spring = this.af.database.list('/spring');
+       this.spring.subscribe(sum=>{
+           this.daysD= [];
+           this.daysD = sum;
+       });
+
+       this.rainy = this.af.database.list('/rainy');
+       this.rainy.subscribe(sum=>{
+           this.daysE= [];
+           this.daysE = sum;
+       });
+      },1000);
+      loading.dismiss();
           }
          
     timeChange(time){
@@ -234,7 +156,7 @@ export class NotifyPage {
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
             firstNotificationTime.setHours(this.chosenHours);
             firstNotificationTime.setMinutes(this.chosenMinutes);
- 
+            console.log("Notifications time is ", firstNotificationTime);
             let notification = {
                 id: day.dayCode,
                 title: day.ntitle,
@@ -291,7 +213,7 @@ export class NotifyPage {
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
             firstNotificationTime.setHours(this.chosenHours);
             firstNotificationTime.setMinutes(this.chosenMinutes);
- 
+             console.log("Notifications time is ", firstNotificationTime);
             let notification = {
                 id: day.dayCode,
                 title: day.ntitle,
@@ -346,7 +268,7 @@ export class NotifyPage {
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
             firstNotificationTime.setHours(this.chosenHours);
             firstNotificationTime.setMinutes(this.chosenMinutes);
- 
+            console.log("Notifications time is ", firstNotificationTime);
             let notification = {
                 id: day.dayCode,
                 title: day.ntitle,
@@ -403,7 +325,7 @@ export class NotifyPage {
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
             firstNotificationTime.setHours(this.chosenHours);
             firstNotificationTime.setMinutes(this.chosenMinutes);
- 
+             console.log("Notifications time is ", firstNotificationTime);
             let notification = {
                 id: day.dayCode,
                 title: day.ntitle,
@@ -460,7 +382,7 @@ export class NotifyPage {
             firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
             firstNotificationTime.setHours(this.chosenHours);
             firstNotificationTime.setMinutes(this.chosenMinutes);
- 
+            console.log("Notifications time is ", firstNotificationTime);
             let notification = {
                 id: day.dayCode,
                 title: day.ntitle,

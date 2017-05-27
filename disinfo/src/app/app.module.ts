@@ -6,18 +6,14 @@ import { MyApp } from './app.component';
 
 
 
-//import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 //import { TranslateModule , TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 
-//NATIVE COMPONENTS
-import { NativePageTransitions } from '@ionic-native/native-page-transitions'; 
-//import { InAppBrowser } from '@ionic-native/in-app-browser'; 
+//********NATIVE COMPONENTS
 import { AppRate } from '@ionic-native/app-rate';
-//import { Network } from '@ionic-native/network';
-//import { BackgroundMode } from '@ionic-native/background-mode';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
-//PAGES
+//*********PAGES
 import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
 import { NotifyPage } from '../pages/notify/notify';
@@ -30,7 +26,7 @@ import { CurePage } from '../pages/cure/cure';
 import { PrecPage } from '../pages/prec/prec';
 import { AdminPage } from '../pages/admin/admin';
 
-//PROVIDERS
+//**********PROVIDERS
 import { Data } from '../providers/data';
 // import { LanguageService } from '../providers/language.service';
 
@@ -94,7 +90,7 @@ export const firebaseConfig = {
            //   Network, 
           //    BackgroundMode,
               AppRate,
-              NativePageTransitions
+              SocialSharing
               ]
 })
 export class AppModule {}

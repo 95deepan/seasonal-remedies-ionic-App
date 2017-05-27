@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen,AdMob } from 'ionic-native';
 import { AppRate } from '@ionic-native/app-rate';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 //import { AdminPage } from '../pages/admin/admin';
 import { MainPage } from '../pages/main/main';
@@ -29,7 +30,8 @@ export class MyApp {
   constructor(
     public platform: Platform,
      public storage: Storage,
-      public appRate: AppRate
+      public appRate: AppRate,
+       public social: SocialSharing
     //  public translate: TranslateService,
     //   public languageService: LanguageService
        ) {
@@ -81,6 +83,9 @@ export class MyApp {
  };
 
 this.appRate.promptForRating(true);
+  }
+  share(){
+    this.social.share("Get rid off the seasonal diseases with this amazing app.Follow the link to install Seasonal Remedies App",null,null,"https://play.google.com/store/apps/details?id=com.DeepanKumarC");
   }
   initializeApp() {
     this.platform.ready().then(() => {
