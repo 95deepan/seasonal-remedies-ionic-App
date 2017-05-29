@@ -38,9 +38,10 @@
 </ion-header>
   
 <ion-slides (ionSlideDidChange)="slideChanged()">
-                             <!-- Summer -->
+                 <!-- Summer -->
   <ion-slide *ngFor="let sum of sum | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
   <div style="padding-bottom: 95px;"></div>
+      <div *ngIf="sum == undefined || win == undefined || fal == undefined || spr == undefined || rai == undefined " class="wait">Please wait..</div>            
    <ion-card  *ngFor="let disease of sum.Diseases">
   <img class="imgcss" src="assets/img/summer2.jpg" (click)=info(disease.Description.name,disease.Description.info)/>
   <ion-card-content>

@@ -15,6 +15,7 @@ declare var google;
 })
 export class LocationPage {
   @ViewChild('map') mapElement;
+  @ViewChild('input') myInput;
   map: any;
   marker: any;
   revLoc = "";
@@ -47,8 +48,10 @@ export class LocationPage {
   }
   opensearchbar(){
    this.showsearch = true;
-   Keyboard.show();
-   console.log("It is clicked");
+   setTimeout(() => {
+      Keyboard.show() // for android
+      this.myInput.setFocus();
+    },50);
   }
   setloc(){
     let latlng = new google.maps.LatLng(this.newlat,this.newlon);;

@@ -22,7 +22,8 @@
                       [(ngModel)]="query"
                       (ionInput)="search()"
                       (search)="onSearch($event)"
-                      class="trans">
+                      class="trans"
+                      #input>
      </ion-searchbar> 
     </ion-toolbar>
     <div *ngIf="showsearch == true">

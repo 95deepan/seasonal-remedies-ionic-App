@@ -35,8 +35,11 @@ export class MainPage {
 
   query : string = 'summer';
   setWeather: any;
-  weatherData:any[];
+
   temp:number;
+  wind:number;
+  humidity:number;
+
   revLoc = "";
   address: any;
   newlat: any;
@@ -54,48 +57,51 @@ export class MainPage {
              public popoverctrl: PopoverController
       ) 
   {       
-     AdMob.hideBanner();
-     this.sum = this.af.database.list('/Summer');
-     this.win = this.af.database.list('/Winter');
-     this.fal = this.af.database.list('/Fall');
-     this.spr = this.af.database.list('/Spring');
-     this.rai = this.af.database.list('/Rainy');
-
+     let loading = this.loadCtrl.create({
+       content:"Please wait.."
+     });
+     setTimeout(()=> {
+      loading.present().then(()=>{
+        this.sum = this.af.database.list('/Summer');
+        this.win = this.af.database.list('/Winter');
+        this.fal = this.af.database.list('/Fall');
+        this.spr = this.af.database.list('/Spring');
+        this.rai = this.af.database.list('/Rainy');  
+        loading.dismiss().catch(() => { });       
+       });        
+    });
+    
        this.newlat = localStorage.getItem('userlat');
        this.newlon = localStorage.getItem('userlon');
        if(this.newlat == undefined && this.newlon == undefined){
-       let alert = this.alrtCrtl.create({
-               subTitle: 'Please Set your location',
-                  buttons: [{
-                    text:'OK',
-                    handler: data=>{
-                     this.navCtrl.push(LocationPage);
-                   }
-                  },{
-                    text: 'Skip',
-                    role:'cancel'
-                  }
-                  ]
-                 });
-              alert.present(); 
+        let toastc = this.toast.create({
+          message:"Please set your location",
+          duration: 5000,
+          closeButtonText:'ok',
+          position:'bottom',
+           showCloseButton : true
+        });
+        toastc.present();
      }
      else { 
        this.showreport();   
-     }          
+     }     
+      AdMob.hideBanner();     
    }
 
 
     showreport(){
-      
       let loading = this.loadCtrl.create({
-      content: 'Fetching Current Weather condition...',
+      content: 'Please wait...',
       });
       loading.present();
       setTimeout(() => {
       this.weather = "http://api.openweathermap.org/data/2.5/weather?lat="+this.newlat+"&lon="+this.newlon+"&APPID=352e6fd67fd7ed5c99351254c6d2dd5b";
       this.http.get(this.weather).map(res => res.json()).subscribe(data => {
-              this.weatherData = [];
-              this.weatherData = data;
+              this.temp = parseInt(data.main.temp)-273; 
+              this.wind = data.wind.speed;
+              this.humidity = data.main.humidity;
+
               this.setWeather = data.weather[0].description;
                localStorage.setItem('weather',this.setWeather);
               if(localStorage.getItem("newloc")=="yes"){
@@ -164,7 +170,8 @@ export class MainPage {
 
     popover.onDidDismiss((item)=>{
        if(item == "Location"){
-        let alert = this.alrtCrtl.create({
+         if(localStorage.getItem("location") != undefined){
+           let alert = this.alrtCrtl.create({
           title: 'My Location',
           subTitle: localStorage.getItem("location"),
           buttons: [{
@@ -180,20 +187,49 @@ export class MainPage {
           ]
         });
          alert.present();
+         }
+        else{
+          let alert = this.alrtCrtl.create({
+             title:"Sorry !",
+             subTitle:"Location is not available",
+             buttons:[{
+               text:"set now",
+               handler:data=>{
+                 this.navCtrl.push(LocationPage);
+               }
+             }]
+          });
+          alert.present();
+        }
        }
        if(item == "Report"){
-         console.log("data is",this.weatherData)
-         this.temp = this.weatherData.main.temp-273.15;
-         var a = parseInt(this.temp);
-         var b = this.weatherData.wind.speed/3.6;
-         //b = parseInt(b);
+         if(this.newlat != undefined && this.newlon != undefined){
+                 var b = this.wind/3.6;
          b = Math.round(b*10)/10; 
-         let data = "<br><b>Max. Temperature</b>: "+a+"°C<br><br><b>Humidity:</b>"+this.weatherData.main.humidity+" %<br><br><b>Wind:</b>"+b+" Kmph<br><br><b>Weather condition</b>: "+this.weatherData.weather[0].description ;
+         let data = "<br><b>Max. Temperature</b>: "+this.temp+"°C<br><br><b>Humidity: </b>"+this.humidity+" %<br><br><b>Wind: </b>"+b+" Kmph<br><br><b>Weather condition</b>: "+this.setWeather ;
          let alert = this.alrtCrtl.create({
-           title:"<center>Weather Report</center>",
-           subTitle:data
+           title:"<center>Weather Data</center>",
+           subTitle:data,
+           buttons:[{
+             text:"ok",
+             role:"cancel"
+           }]
          });
          alert.present();
+         }
+       else{
+           let alert = this.alrtCrtl.create({
+             title:"Sorry !",
+             subTitle:"Location is not available",
+             buttons:[{
+               text:"set now",
+               handler:data=>{
+                 this.navCtrl.push(LocationPage);
+               }
+             }]
+          });
+          alert.present();
+       }
        }
        if(item == "share"){
          alert(item);
@@ -339,4 +375,12 @@ export class MainPage {
          localStorage.setItem('newseason','summer');
           }   
   }
+}
+export interface Iweather{
+  main:string,
+  temp:number,
+  weather:[{
+    description:string
+  }],
+  wind:number
 }

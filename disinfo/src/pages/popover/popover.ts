@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,ViewController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-popover',
@@ -7,11 +7,8 @@ import { NavController, NavParams,ViewController } from 'ionic-angular';
 })
 export class PopoverPage {
 
-  constructor(public navCtrl: NavController, public view: ViewController) {}
+  constructor(public view: ViewController) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PopoverPage');
-  }
   pop(item){
       this.view.dismiss(item);
   }

@@ -108,6 +108,7 @@ this.appRate.promptForRating(true);
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
       Splashscreen.hide();
+      console.log = () => { }
     });
   }
 }
