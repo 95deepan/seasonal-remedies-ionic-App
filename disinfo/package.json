@@ -32,6 +32,7 @@
     "firebase": "^3.7.4",
     "ionic-angular": "2.2.0",
     "ionic-native": "2.2.11",
+    "ionic2-super-tabs": "^2.6.2",
     "ionicons": "3.0.0",
     "moment": "^2.18.0",
     "ng2-translate": "^5.0.0",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@ionic-native/core": "^3.6.0",
     "@ionic/app-scripts": "^1.3.7",
+    "@ionic/cli-plugin-ionic-angular": "1.3.1",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [

@@ -40,7 +40,8 @@ export class MyApp {
     this.languages = this.languageService.getLanguages();  
     this.translate.setDefaultLang(this.languageSelected);
     this.translate.use(this.languageSelected); */
-      let options = { 
+     
+     /* let options = { 
               adId : 'ca-app-pub-4733905153068511/9078442787',
               adSize: 'SMART_BANNER',
               isTesting : false
@@ -48,7 +49,7 @@ export class MyApp {
             AdMob.createBanner(options).then(()=>
             {
               AdMob.showBanner(8); 
-            })
+            }) */
     this.initializeApp();
 
       this.storage.get('hasSeenSlides')

@@ -18,7 +18,7 @@ import { PopoverPage } from '../popover/popover';
 
 import { AngularFire,FirebaseListObservable } from 'angularfire2';
 import { Http } from '@angular/http';
-import { AdMob } from 'ionic-native';
+//import { AdMob } from 'ionic-native';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -46,6 +46,10 @@ export class MainPage {
   newlon: any;
   weather = "";
   showeather:string;
+
+  wait1:boolean = false;
+  wait2:boolean = false;
+  wait3:boolean = false;
   constructor(
     public navCtrl: NavController,
       public platform: Platform,
@@ -57,20 +61,6 @@ export class MainPage {
              public popoverctrl: PopoverController
       ) 
   {       
-     let loading = this.loadCtrl.create({
-       content:"Please wait.."
-     });
-     setTimeout(()=> {
-      loading.present().then(()=>{
-        this.sum = this.af.database.list('/Summer');
-        this.win = this.af.database.list('/Winter');
-        this.fal = this.af.database.list('/Fall');
-        this.spr = this.af.database.list('/Spring');
-        this.rai = this.af.database.list('/Rainy');  
-        loading.dismiss().catch(() => { });       
-       });        
-    });
-    
        this.newlat = localStorage.getItem('userlat');
        this.newlon = localStorage.getItem('userlon');
        if(this.newlat == undefined && this.newlon == undefined){
@@ -86,15 +76,30 @@ export class MainPage {
      else { 
        this.showreport();   
      }     
-      AdMob.hideBanner();     
+     // AdMob.hideBanner();     
    }
+ 
+    ionViewDidLoad(){
+        this.sum = this.af.database.list('/Summer');
+        this.win = this.af.database.list('/Winter');
+        this.fal = this.af.database.list('/Fall');
+        this.spr = this.af.database.list('/Spring');
+        this.rai = this.af.database.list('/Rainy');
+       this.wait1 = true;
+         setTimeout(()=>{
+           this.wait1 = false;
+           this.wait2 = true;
+           this.wait3 = false;
+         },2000);
+         setTimeout(()=>{
+           this.wait1 = false;
+           this.wait2 = false;
+           this.wait3 = true;
+         },4000);
 
-
+       
+    }
     showreport(){
-      let loading = this.loadCtrl.create({
-      content: 'Please wait...',
-      });
-      loading.present();
       setTimeout(() => {
       this.weather = "http://api.openweathermap.org/data/2.5/weather?lat="+this.newlat+"&lon="+this.newlon+"&APPID=352e6fd67fd7ed5c99351254c6d2dd5b";
       this.http.get(this.weather).map(res => res.json()).subscribe(data => {
@@ -161,8 +166,7 @@ export class MainPage {
                 
                }
             });
-         loading.dismiss();
-  }, 1000);
+    }, 100);
   }
   pop(myevent){
     let popover = this.popoverctrl.create(PopoverPage);

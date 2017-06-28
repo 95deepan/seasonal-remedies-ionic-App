@@ -36,12 +36,27 @@
     </ion-segment> 
     
 </ion-header>
+  <div *ngIf="!(sum | async)" class="wait">
+    
+    <div *ngIf="wait1">
+      <ion-spinner name="circles"></ion-spinner>
+      <div>Please wait...</div>
+    </div>
+
+    <div *ngIf="wait2">
+      <ion-spinner name="circles"></ion-spinner>
+      <div>Still Trying...</div>
+    </div>
+
+    <div *ngIf="wait3">
+      <div>No Internet Connection</div>
+    </div>
   
+  </div>
 <ion-slides (ionSlideDidChange)="slideChanged()">
                  <!-- Summer -->
   <ion-slide *ngFor="let sum of sum | async" no-padding style="background-image: url(assets/img/slidebg.jpg);">
   <div style="padding-bottom: 95px;"></div>
-      <div *ngIf="sum == undefined || win == undefined || fal == undefined || spr == undefined || rai == undefined " class="wait">Please wait..</div>            
    <ion-card  *ngFor="let disease of sum.Diseases">
   <img class="imgcss" src="assets/img/summer2.jpg" (click)=info(disease.Description.name,disease.Description.info)/>
   <ion-card-content>
